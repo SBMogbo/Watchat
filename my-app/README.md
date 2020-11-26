@@ -1,6 +1,6 @@
 Mongoose/MongoDb table setup sudo code
 
-first table "Users" contains username and pic
+first table "Users" contains username and password:md5 and pic
 
 second table "Watched" contains connection to "User" at user id and seen movies/shows by omdb id
 
