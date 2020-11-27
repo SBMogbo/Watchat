@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Container from "../../components/Container";
-import Col from "../../components/Col";
-import Row from "../../components/Row";
-
+import Container from "../components/Container";
+import Col from "../components/Col";
+import Row from "../components/Row";
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState();
@@ -15,7 +16,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <Router>
       <div className="mt-4">
         <h2>Welcome to Watchat</h2>
       </div>
@@ -48,7 +49,11 @@ const Signup = () => {
           </button>
         </Container>
       </form>
-    </div>
+      <p>Login</p>
+                <ul>
+                    <li><Link to="../login/login">login</Link></li>
+                </ul>
+    </Router>
   );
 };
 
