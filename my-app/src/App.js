@@ -1,6 +1,7 @@
-
 import { Component } from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const emailRegex= RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
@@ -82,6 +83,7 @@ class App extends Component{
     const {formErrors}=this.state;
 
     return (
+      <Router>
       <div className="wrapper">
          <h1>Welcome to Watchat</h1>
         <div className="form-wrapper">
@@ -111,11 +113,12 @@ class App extends Component{
           </div>
           <div className="createAccount">
             <button type="submit">Create Your Account</button>
-            <p>Have an Account?</p>
+            <p><Link to="/login">Have an Account?</Link></p>
           </div>
           </form>
         </div>
       </div>
+      </Router>
     )
   }
 }
