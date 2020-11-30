@@ -18,7 +18,8 @@ You will be employer-ready if you can answer the following questions:
 
 1. What is required to work with a MERN application in a development environment?
 2. What is React Router doing in the context of an SPA?
-3. How does one configure a MERN application for deployment to a production environment?
+3. How does one configure a MERN application for deployment to a production environment.
+Noor Mir
 
 ## Learning Objectives
 
