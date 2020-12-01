@@ -1,4 +1,4 @@
-/* .wrapper {
+.wrapper {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -36,7 +36,7 @@ label {
   font-size: 1em;
   margin-bottom: 0.25em;
   color: #222;
-  font-weight: inherit;
+  font-weight: bold;
 }
 
 input {
@@ -47,8 +47,8 @@ input {
 }
 
 input::placeholder {
-  font-size: 1.2em;
-  font-weight: lighter;
+  font-size: 1.0em;
+  font-weight: bold;
   color: #999;
 }
 
@@ -94,25 +94,25 @@ input.error {
 }
 
 .createAccount button {
-  background-color: #519e8a;
+  background-color: #111;
   color: #fff;
   border: 2px solid #fff;
   width: 100%;
   margin-top: 1em;
   padding: 8px 0px;
   font-size: 1em;
-  font-weight: lighter;
+  font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 0.25em;
 }
 
 .createAccount button:hover {
-  color: #31E981;
+  color: #111;
   background-color: #fff;
-  border: 2px solid #9BC53D;
+  border: 2px solid #111;
 }
 
 .createAccount small {
   color: #999;
   font-weight: lighter;
-} */
+}

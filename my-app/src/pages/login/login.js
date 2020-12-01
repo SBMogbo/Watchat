@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import './App.css';
+
 
 const Login= () => {
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ const Login= () => {
         </Button>
         <p>Sign Up here</p>
                 <ul>
-                    <li><Link to="/">SignUp</Link></li>
+                    <li><Link path="/App.js">Sign Up</Link></li>
                 </ul>
       </Form>
       
