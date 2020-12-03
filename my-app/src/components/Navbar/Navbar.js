@@ -7,21 +7,11 @@ import SearchIcon from "@material-ui/icons/Search";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import FeaturedVideoRoundedIcon from '@material-ui/icons/FeaturedVideo';
+import QueueRoundedIcon from '@material-ui/icons/Queue';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
-import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+import { IconButton } from "@material-ui/core";
 import "./style.css";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 
 
 function Navbar() {
@@ -85,5 +75,7 @@ function Navbar() {
       </div>
     </div>
   )
+
 }
-export default Navbar
+
+export default Navbar;
