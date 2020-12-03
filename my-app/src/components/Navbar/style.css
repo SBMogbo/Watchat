@@ -21,7 +21,7 @@
     outline-width: 0;
 }
 
-.header_options >.MuiSvgIcon-root{
+.header-option >.MuiSvgIcon-root{
 
     color: gray;
 }

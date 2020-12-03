@@ -38,13 +38,13 @@ function Navbar() {
           </div>
           {/* Header Center */}
           <div className={'col-12 col-md-6 d-flex p-1 '}>
-            <div className="col-4 d-flex justify-content-center header_options">
+            <div className="col-4 d-flex justify-content-center header-option">
               <HomeIcon fontSize="large"/>
             </div>
-            <div className="col-4 d-flex justify-content-center header_options">
+            <div className="col-4 d-flex justify-content-center header-option">
               <PlaylistAddCheckIcon fontSize="large"/>
             </div>
-            <div className="col-4 d-flex justify-content-center header_options">
+            <div className="col-4 d-flex justify-content-center header-option">
               <SubscriptionsIcon fontSize="large"/>
             </div>
           </div>
