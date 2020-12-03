@@ -1,30 +1,19 @@
 .header {
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+
     background-color: white;
     z-index: 100;
     top: 0;
     box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
-
 }
 
-.header_left {
+.header-left {
     display: flex;
     justify-content: space-evenly;
 }
-.header_input {
-    display: flex;
-    align-items: center;
-    background-color: #eff2f5;
-    padding: 10px;
-    margin-left: 10px;
-    border-radius: 33px;
-}
 
-.header_left > img {
-    height: 40px;
+.header_input {
+    background-color: #eff2f5;
+    border-radius: 33px;
 }
 .header_input > input {
     border: none;
@@ -32,31 +21,32 @@
     outline-width: 0;
 }
 
-.header_center {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
 .header_options >.MuiSvgIcon-root{
+
     color: gray;
 }
 
-.header_options:hover > .MuiSvgIcon-root{
-    color: #F4CA16
+.header-option:hover > .MuiSvgIcon-root {
+    color:#f4ca16;
 }
 
 
+.header-option--active > .MuiSvgIcon-root {
+    color: #f4ca16;
+}
 
+.header-option--active {
+    border-bottom: 4px solid #f4ca16;
+}
 
-.header_options {
+.header-option {
     display: flex;
     align-items: center;
     padding: 0px 30px;
     cursor: pointer;
 }
 
-.header_options:hover {
+.header-option:hover {
     background-color: #eff2f5;
     border-radius: 10px;
     align-items: center;
@@ -64,18 +54,31 @@
     border-bottom: none;
 }
 
-.header_info{
-    display: flex;
-    align-items: center;
-}
 
-.header_info > h4 {
-    margin-left: 10px;
-}
-.header_right{
-    display: flex;
-}
+/*.header_left > img {*/
+/*    height: 40px;*/
+/*}*/
 
-.expand-button {
-    border-radius: 33px;
-}
+
+/*.header_center {*/
+/*    display: flex;*/
+/*    flex: 1;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.header_info{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.header_info > h4 {*/
+/*    margin-left: 10px;*/
+/*}*/
+/*.header_right{*/
+/*    display: flex;*/
+/*}*/
+
+/*.expand-button {*/
+/*    border-radius: 33px;*/
+/*}*/
+
