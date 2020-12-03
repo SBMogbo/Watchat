@@ -8,3 +8,5 @@ third table "ToWatch" contains connection to "User" at user id and movies/shows 
 
 forth table "Reviews" contains connection to "User" at user id and movie/show by omdb id and review title and review, and recommendation optional
 changed to be mongoose one instead of sql style
+
+hi
