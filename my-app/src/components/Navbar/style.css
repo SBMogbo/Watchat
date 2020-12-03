@@ -1,8 +1,8 @@
 .header {
-    padding: 15px 20px;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
-    position: sticky;
+    position: relative;
     background-color: white;
     z-index: 100;
     top: 0;
@@ -10,45 +10,53 @@
 
 }
 
-.header-left {
+.header_left {
     display: flex;
     justify-content: space-evenly;
 }
-
-.header-left >img {
-
+.header_input {
+    display: flex;
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 33px;
 }
 
-.header-center {
+.header_left > img {
+    height: 40px;
+}
+.header_input > input {
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+
+.header_center {
     display: flex;
     flex: 1;
     justify-content: center;
 }
 
-.header-option > .MuiSvgIcon-root {
+.header_options >.MuiSvgIcon-root{
     color: gray;
 }
 
-.header-option:hover > .MuiSvgIcon-root {
-    color:#f4ca16;
+.header_options:hover > .MuiSvgIcon-root{
+    color: #F4CA16
 }
 
-.header-option--active > .MuiSvgIcon-root {
-    color: #f4ca16;
-}
 
-.header-option--active {
-    border-bottom: 4px solid #f4ca16;
-}
 
-.header-option {
+
+.header_options {
     display: flex;
     align-items: center;
     padding: 0px 30px;
     cursor: pointer;
 }
 
-.header-option:hover {
+.header_options:hover {
     background-color: #eff2f5;
     border-radius: 10px;
     align-items: center;
@@ -56,29 +64,18 @@
     border-bottom: none;
 }
 
-.header-info{
+.header_info{
     display: flex;
     align-items: center;
 }
 
-.header-info > h4 {
+.header_info > h4 {
     margin-left: 10px;
 }
-.header-right{
+.header_right{
     display: flex;
 }
 
-.header-input {
-    display: flex;
-    align-items: center;
-    background-color: #eff2f5;
-    padding: 0px 10px;
-    margin-left: 10px;
+.expand-button {
     border-radius: 33px;
-}
-
-.header-input > input {
-    border: none;
-    background-color: transparent;
-    outline-width: 0;
 }
