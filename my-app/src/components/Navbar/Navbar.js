@@ -1,6 +1,12 @@
 import React from "react";
-import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
+import Grid from "@material-ui/core/Grid"
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import HomeIcon from "@material-ui/icons/Home";
+import SearchIcon from "@material-ui/icons/Search";
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import FeaturedVideoRoundedIcon from '@material-ui/icons/FeaturedVideo';
 import QueueRoundedIcon from '@material-ui/icons/Queue';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -9,40 +15,67 @@ import "./style.css";
 
 
 function Navbar() {
-    return (
-        <div className="header">
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-            <div className="header-left">
-                <div className="header-info">
-                    Logo
-                </div>
-                </div> 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-                <div className="header-center">
-                    <div className="header-option">
-                    <HomeIcon fontSize="Large"/>
-                    </div>
-                    <div className="header-option">
-                    <FeaturedVideoRoundedIcon fontSize="Large"/>
-                    </div>
-                    <div className="header-option">
-                    <QueueRoundedIcon fontSize="Large"/>
-                    </div>
-                </div>
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  return (
+    <div class="header">
+      <div className="header_left">
+        <img src="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico"></img>
 
-                <div className="header-right">
-                    <div className="header-input">
-                        <SearchIcon />
-                        <input placeholder="Search Movie" type="text" />
-                    </div>
-                    <IconButton>
-                    <ExpandMoreIcon fontSize="large"/>
-                    </IconButton>
-                   
-                </div>
-        </div> 
 
-    )
+      </div>
+
+      <div className="header_center">
+        <div
+          className="header_options
+        header_option--active"
+        >
+          <HomeIcon fontSize="large" />
+        </div>
+        <div className="header_options">
+          <PlaylistAddCheckIcon fontSize="large" />
+        </div>
+        <div className="header_options">
+          <SubscriptionsIcon fontSize="large" />
+        </div>
+      </div>
+
+      <div className="header_right">
+        <div className="header_input">
+          <SearchIcon />
+          <input placeholder="Search Movies" type="text" />
+        </div>
+
+        <div>
+          <Button className="expand-button" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <ExpandMoreIcon />
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Support</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
+        </div>
+
+      </div>
+    </div>
+  )
+
 }
 
 export default Navbar;
