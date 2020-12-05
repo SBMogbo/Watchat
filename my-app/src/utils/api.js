@@ -6,15 +6,15 @@ export default {
   getMovies: function() {
     return axios.get("/api/movies");
   },
-  // Gets the book with the given id
+  // Gets the movie with the given id
   getMovies: function(id) {
     return axios.get("/api/movies/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the movie with the given id
   deleteMovies: function(id) {
     return axios.delete("/api/movies/" + id);
   },
-  // Saves a book to the database
+  // Saves a movie to the database
   saveMovies: function(bookData) {
     return axios.post("/api/movies", bookData);
   }
