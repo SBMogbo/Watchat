@@ -54,6 +54,14 @@
     border-bottom: none;
 }
 
+.nav-link {
+    color: gray;
+}
+
+.nav-link:hover {
+color: #f4ca16;
+border-bottom: 4px solid #f4ca16; 
+}
 
 /*.header_left > img {*/
 /*    height: 40px;*/
