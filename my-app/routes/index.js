@@ -1,13 +1,26 @@
-const path = require("path");
-const router = require("express").Router();
-const apiRoutes = require("./api");
+const express = require("express");
+const bodyParser = require("body-parser");
+const InitiateMongoServer = require("./config/db");
+const user = require("./routes/user");
 
-// API Routes
-router.use("/api", apiRoutes);
+// Initiate Mongo Server
+InitiateMongoServer();
 
-// If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+const app = express();
+
+// PORT
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.json({ message: "API is Working" });
 });
 
-module.exports = router;
+app.use("/user", user);
+
+app.listen(PORT, (req, res) => {
+  console.log(`Server Started at PORT ${PORT}`);
+});
+
