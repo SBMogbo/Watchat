@@ -1,7 +1,5 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid"
-import {makeStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from '@material-ui/core/Button';
@@ -10,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {IconButton} from "@material-ui/core";
+
 import "./style.css";
 
 
@@ -38,14 +36,21 @@ function Navbar() {
           </div>
           {/* Header Center */}
           <div className={'col-12 col-md-6 d-flex p-1 '}>
-            <div className="col-4 d-flex justify-content-center header-option">
+            <div className="col-4 d-flex justify-content-center header-option" title="Home">
+              < Link to="/" className="nav-link"> 
               <HomeIcon fontSize="large"/>
+              </Link>
+              
             </div>
-            <div className="col-4 d-flex justify-content-center header-option">
-              <PlaylistAddCheckIcon fontSize="large"/>
+            <div className="col-4 d-flex justify-content-center header-option" title="Watched">
+             <Link to="/watched" className="nav-link" >
+             <PlaylistAddCheckIcon fontSize="large"/>
+             </Link>
             </div>
-            <div className="col-4 d-flex justify-content-center header-option">
+            <div className="col-4 d-flex justify-content-center header-option" title="Watchlist">
+              <Link to="/watchlist" className="nav-link">
               <SubscriptionsIcon fontSize="large"/>
+              </Link>
             </div>
           </div>
 
@@ -71,10 +76,10 @@ function Navbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Support</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="reviews" className="nav-link">Reviews</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="#" className="nav-link">Support</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to ="/signup" className="nav-link">Logout</Link></MenuItem>
             </Menu>
 
 
