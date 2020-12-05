@@ -78,7 +78,7 @@ function Navbar() {
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="reviews" className="nav-link">Reviews</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to="#" className="nav-link">Support</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/details" className="nav-link">Details</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to ="/signup" className="nav-link">Logout</Link></MenuItem>
             </Menu>
 
