@@ -7,6 +7,7 @@ import Watchlist from "./pages/watchlist/index";
 import Profile from "./pages/profile/index";
 import Reviews from "./pages/reviews/index";
 import Details from "./pages/MovieDetails/index";
+import Login from "./pages/login/login";
 // import logo from './logo.svg';
 import Navbar from "./components/Navbar/Navbar";
 
@@ -21,9 +22,10 @@ function App() {
                     <Route exact path="/watched" component={Watched} />
                     <Route exact path="/watchlist" component={Watchlist} />
                     <Route exact path="/details" component={Details} />
-                    <Route exact path="/signup" component={SignUp} />
+                    <Route exact path="/signUp" component={SignUp} />
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/reviews" component={Reviews} />
+                    <Route exact path="/login" component={Login} />
                 </Switch>
 
             </div>
