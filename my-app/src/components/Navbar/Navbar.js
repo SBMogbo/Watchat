@@ -30,7 +30,7 @@ function Navbar() {
           {/*Header Left*/}
 
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-            <img src="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico"></img>
+            WatchAT
 
 
           </div>

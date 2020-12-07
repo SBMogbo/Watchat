@@ -2,7 +2,7 @@
 import {Row, Col} from "react-bootstrap";
 import "./style.css";
 import CategoryButtons from "../../components/CategoryButtons/index";
-import PlatformButtons from "../../components/PlatformButtons";
+
 
 
 

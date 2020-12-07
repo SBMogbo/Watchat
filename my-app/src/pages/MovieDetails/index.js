@@ -5,7 +5,6 @@ import {
     Col,
     Card,
     Button,
-    Image
 } from "react-bootstrap";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 
