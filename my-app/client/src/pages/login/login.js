@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 //test
 
 const Login= () => {
@@ -42,7 +42,7 @@ const Login= () => {
         </Button>
         <p>Sign Up here</p>
                 <ul>
-                    <li><Link path="/App.js">Sign Up</Link></li>
+                    <li><Link to="/signup">Sign Up</Link></li>
                 </ul>
       </Form>
       

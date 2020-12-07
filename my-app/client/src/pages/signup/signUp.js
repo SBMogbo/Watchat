@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import '../style.css';
+import API from "../../utils/API";
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 const emailRegex= RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
@@ -41,12 +42,12 @@ class SignUp extends Component{
     if(formValid(this.state)){
       console.log(`
       username:${this.state.username}
-
       email:${this.state.email}
-
       password:${this.state.password}
       `);
-      
+      API.saveUser(this.state.username, this.state.email, this.state.password)
+      .then(res => console.log('signup successful'))
+      .catch(err => console.log(err));
     }else{
      console.error("error form is invalid");
     }
