@@ -1,46 +1,52 @@
-//profile page
-import {Row, Col} from "react-bootstrap";
+// profile page
+import "./style.css";
+import {Row, Col, Card, Image} from "react-bootstrap";
 import ProfileMovieCard from "../../components/ProfileMovieCard";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 
 
-
-function Profile () {
+function Profile() {
     return (
         <div className="container">
             <Row>
-                <Col className="profile-pic" sm={3}>
-                    Profile Pic
+                <Col className="left-top" sm={3}>
+                    <Image src="https://image.shutterstock.com/image-vector/user-avatar-icon-sign-profile-260nw-1145752283.jpg" roundedCircle/>
                 </Col>
 
-                <Col sm={9}>
+                <Col className="right-top"
+                    sm={9}>
                     <Row>
-                        <Col>
-                        Username
+                        <Col className="username"
+                            sm={4}>
+                            <Card>
+                                <Card.Header>
+                                    WatchatUser001
+                                </Card.Header>
+                            </Card>
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                        <ProfileRecommend />
+                        <Col className="profile-recommend">
+                            <ProfileRecommend/>
                         </Col>
                     </Row>
                 </Col>
             </Row>
 
-            <Row>
+            <Row className="movie-cards">
                 <Col sm={4}>
-                   <ProfileMovieCard />
+                    <ProfileMovieCard/>
                 </Col>
                 <Col sm={4}>
-                   <ProfileMovieCard />
+                    <ProfileMovieCard/>
                 </Col>
                 <Col sm={4}>
-                    <ProfileMovieCard />
+                    <ProfileMovieCard/>
                 </Col>
             </Row>
         </div>
-        
+
     )
 }
 
-export default Profile; 
+export default Profile;
