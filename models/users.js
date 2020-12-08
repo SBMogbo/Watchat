@@ -16,6 +16,10 @@ const users = new Schema({
     type: String,
     required: true,
   },
+  
+  Image: {
+    type:String,
+  },
 
   watched: {
     type: Array,

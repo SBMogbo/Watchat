@@ -46,7 +46,10 @@ class SignUp extends Component{
       password:${this.state.password}
       `);
       API.saveUser(this.state.username, this.state.email, this.state.password)
-      .then(res => console.log('signup successful'))
+      .then(res => {
+        console.log('signup successful')
+        this.props.history.push("/login")
+      })
       .catch(err => console.log(err));
     }else{
      console.error("error form is invalid");
