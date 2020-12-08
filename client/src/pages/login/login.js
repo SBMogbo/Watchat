@@ -1,11 +1,11 @@
 // import React, { useState } from "react";
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import '../style.css';
 import { Link } from 'react-router-dom';
 import { HashRouter as Router } from "react-router-dom";
 import API from "../../utils/API"
-import {useStoreContext} from '../../utils/GlobalState';
-import {LOG_IN} from '../../utils/actions';
+import { useStoreContext } from '../../utils/GlobalState';
+import { LOG_IN } from '../../utils/actions';
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -25,7 +25,7 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 function Login(props) {
-  const [globalState,dispatch]=useStoreContext();
+  const dispatch = useStoreContext()[1];
   const [state, setState] = useState({
     username: null,
     password: null,
@@ -54,17 +54,17 @@ function Login(props) {
       // password:${state.password}
       // `);
       try {
-        const response=await API.logIn(state.username,state.password);
-        localStorage.setItem("authorization-token",response.data.token);
-                dispatch({
-                    type:LOG_IN,
-                    payload:response.data
-                })
-    } catch(error) {
+        const response = await API.logIn(state.username, state.password);
+        localStorage.setItem("authorization-token", response.data.token);
+        dispatch({
+          type: LOG_IN,
+          payload: response.data
+        })
+      } catch (error) {
         console.log(error)
         alert("Invalid credentials!");
-    }
-    props.history.push("/home")
+      }
+      props.history.push("/home")
 
     } else {
       console.error("error form is invalid");

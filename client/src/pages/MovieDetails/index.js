@@ -48,7 +48,7 @@ function MovieDetails() {
                         </Col>
                     </Row>
                 </Col>
-                <Col classnaMe="right-side"
+                <Col className="right-side"
                     sm={8}>
                     <Row>
                         <Col>

@@ -5,10 +5,10 @@ function MovieCard(props) {
     return (
         <>
         <Card>
-    <Card.Img variant="top" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+    <Card.Img id={props.id}variant="top" src={props.poster} />
     
       <Card.Text>
-       <p>Title</p>
+       <p>{props.title}</p>
       </Card.Text>
    
   </Card>
