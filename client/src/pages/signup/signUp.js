@@ -2,7 +2,7 @@ import { Component } from 'react';
 import '../style.css';
 import API from "../../utils/API";
 import { Link } from 'react-router-dom';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router} from "react-router-dom";
 
 const emailRegex= RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
