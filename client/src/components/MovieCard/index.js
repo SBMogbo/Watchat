@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 
 
-function MovieCard() {
+function MovieCard(props) {
     return (
         <>
         <Card>

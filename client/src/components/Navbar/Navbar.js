@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
@@ -9,8 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import API from "../../utils/API";
 import "./style.css";
+
 
 
 function Navbar() {
@@ -21,14 +21,13 @@ function Navbar() {
 
   const movieSearchFunc = (event) => {
     event.preventDefault();
+    // setResponse([])
+    // setMovies([]);
     if (!query?.trim()) return;
-    axios
-        .get(
-            `http://www.omdbapi.com/?s=${query}&apikey=f3927da0`,
-        )
+    API.omdbSearch(query)
         .then((res) => {
-          setResponse(res.data.Search);
-          let results = res.data.Search;
+          setResponse(res.Search);
+          let results = res.Search;
           // map through the array
           results = results.map((result) => {
           // store each movie information in a new object
@@ -44,8 +43,8 @@ function Navbar() {
           });
           // reset the sate of the empty movies array to the new arrays of objects with properties geting back from the response
           setMovies(results);
-          // console.log(movies)
-          // console.log(response)
+          console.log("response", response)
+          console.log("movies", movies)
         })
         .catch((err) => {
           console.log('ERROR ' + err);

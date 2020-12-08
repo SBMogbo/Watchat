@@ -3,6 +3,8 @@ import {Row, Col} from "react-bootstrap";
 import "./style.css";
 import CategoryButtons from "../../components/CategoryButtons/index";
 import PlatformButtons from "../../components/PlatformButtons";
+import MovieCard from "../../components/MovieCard";
+
 
 
 function Home() {
@@ -12,7 +14,7 @@ function Home() {
 
             <div className="container">
                 <Row className="title-row">
-                    <Col>
+                    <Col >
                         <h1>Home</h1>
                     </Col>
                 </Row>
@@ -27,6 +29,23 @@ function Home() {
                 <Row className="buttons-row">
                     <Col>
                         <CategoryButtons/>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col md="3">
+                        <MovieCard 
+                        // (Movies.id, Movie.poster)
+                        />
+                    </Col>
+                    <Col md="3">
+                        <MovieCard />
+                    </Col>
+                    <Col md="3">
+                        <MovieCard />
+                    </Col>
+                    <Col md="3">
+                        <MovieCard />
                     </Col>
                 </Row>
             </div>

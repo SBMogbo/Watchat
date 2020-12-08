@@ -25,7 +25,7 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 function Login(props) {
-  const [asdfasdfasdf,dispatch]=useStoreContext();
+  const [globalState,dispatch]=useStoreContext();
   const [state, setState] = useState({
     username: null,
     password: null,
