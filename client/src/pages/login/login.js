@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import '../style.css';
 import { Link } from 'react-router-dom';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router} from "react-router-dom";
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
