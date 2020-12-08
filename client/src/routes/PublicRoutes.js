@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch,Redirect } from "react-router-dom"; 
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"; 
 import SignUp from "../pages/signup/signUp"
 import Login from "../pages/login/login"
 import Navbar from "../components/Navbar/Navbar"
@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar/Navbar"
 const PublicRoutes=()=>{
     return <Router>
         <Switch>
-            <Navbar />
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/signup" component={SignUp} />
             <Redirect to="/login" />

@@ -12,8 +12,8 @@ import Navbar from "../components/Navbar/Navbar"
 
 const PrivateRoutes = () => {
     return <Router>
+        <Navbar />
         <Switch>
-            <Navbar />
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
@@ -23,7 +23,7 @@ const PrivateRoutes = () => {
             <Route exact path="/reviews" component={Reviews} />
             <Route exact path="/watched" component={Watched} />
             <Route exact path="/watchlist" component={Watchlist} />
-            <Redirect to="/dashboard" />
+            <Redirect to="/" />
         </Switch>
     </Router>
 }
