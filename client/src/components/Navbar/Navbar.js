@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
@@ -13,7 +14,43 @@ import "./style.css";
 
 
 function Navbar() {
+  const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
+  const [response, setResponse] = useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const movieSearchFunc = (event) => {
+    event.preventDefault();
+    if (!query?.trim()) return;
+    axios
+        .get(
+            `http://www.omdbapi.com/?s=${query}&apikey=f3927da0`,
+        )
+        .then((res) => {
+          setResponse(res.data.Search);
+          let results = res.data.Search;
+          // map through the array
+          results = results.map((result) => {
+          // store each movie information in a new object
+            result = {
+              key: result.imdbID,
+              id: result.imdbID,
+              poster: result.Poster,              
+              // title: result.Title,
+              // year: result.Year,
+              // type: result.Type,
+            };
+            return result;
+          });
+          // reset the sate of the empty movies array to the new arrays of objects with properties geting back from the response
+          setMovies(results);
+          // console.log(movies)
+          // console.log(response)
+        })
+        .catch((err) => {
+          console.log('ERROR ' + err);
+        });
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,6 +59,7 @@ function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
       <div className={'container-fluid header'}>
         <div className={'row p-3'}>
@@ -59,8 +97,8 @@ function Navbar() {
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
 
             <SearchIcon fontSize="large"/>
-            <input className={'header_input'} placeholder="Search Movies" type="text"/>
-
+            <form onSubmit={movieSearchFunc}><input className={'header_input'} placeholder="Search Movies" type="text" onChange={(e) => setQuery(e.target.value)}/>
+</form>
 
             {/* This is for the Drop Down Far Right. */}
 

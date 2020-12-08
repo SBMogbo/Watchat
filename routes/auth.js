@@ -25,7 +25,7 @@ router
     });
     authFunction(req, res, next);
   }).get((req,res)=>{
-    console.log(req.user,req.working)
+    // console.log(req.user,req.working)
     if(!req.user) {
       
       return res.sendStatus(401);

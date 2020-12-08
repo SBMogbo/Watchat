@@ -4,6 +4,9 @@ export default {
   saveUser:function(username,email,password) {
     return axios.post("/api/user",{username,email,password});
   },
+  updateUser: function(id) {
+    return axios.put("/api/user/" + id);
+  },
   getUsers: function() {
     return axios.get("/api/user");
   },

@@ -38,11 +38,11 @@ function SignUp(props) {
     event.preventDefault();
 
     if (formValid(state)) {
-      console.log(`
-      username:${state.username}
-      email:${state.email}
-      password:${state.password}
-      `);
+      // console.log(`
+      // username:${state.username}
+      // email:${state.email}
+      // password:${state.password}
+      // `);
       API.saveUser(state.username, state.email, state.password)
         .then(res => {
           console.log('signup successful')

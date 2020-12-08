@@ -9,11 +9,15 @@ const { Provider } = StoreContext;
 const reducer = (state, action) => {
   switch (action.type) {
   case LOG_IN:
+    console.log(state)
+    console.log(action.payload)
     return {
       ...state,
       account:action.payload
     };
   case LOG_OUT:
+    console.log(state)
+    console.log(action.payload)
     return {
       ...state,
       account:null

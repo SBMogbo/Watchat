@@ -17,7 +17,6 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
-    console.log(req.body.password)
     db
       .create({
         userName: req.body.username,

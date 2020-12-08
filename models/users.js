@@ -17,7 +17,7 @@ const users = new Schema({
     required: true,
   },
   
-  Image: {
+  profileImage: {
     type:String,
   },
 
@@ -26,6 +26,7 @@ const users = new Schema({
     movies: [
       {
         id: String,
+        poster: String,
       },
     ]
   },
@@ -35,6 +36,7 @@ const users = new Schema({
     movies: [
       {
         id: String,
+        poster: String,
       },
     ]
   },
@@ -44,6 +46,7 @@ const users = new Schema({
     movies: [
       {
         id: String,
+        poster: String,
         reviewTitle: String,
         review: String,
         recommendationId: String,

@@ -49,10 +49,10 @@ function Login(props) {
     event.preventDefault();
 
     if (formValid(state)) {
-      console.log(`
-      username:${state.username}
-      password:${state.password}
-      `);
+      // console.log(`
+      // username:${state.username}
+      // password:${state.password}
+      // `);
       try {
         const response=await API.logIn(state.username,state.password);
         localStorage.setItem("authorization-token",response.data.token);
@@ -64,7 +64,7 @@ function Login(props) {
         console.log(error)
         alert("Invalid credentials!");
     }
-
+    props.history.push("/home")
 
     } else {
       console.error("error form is invalid");
