@@ -17,6 +17,7 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
+    console.log(req.body.password)
     db
       .create({
         userName: req.body.username,
@@ -57,7 +58,7 @@ module.exports = {
     } else {
       try {
         const jwtPayload = jwt.verify(req.get("Authorization"), "jwtsecretpassphrase");
-        db.User.findOne({
+        db.findOne({
           _id: jwtPayload._id
         }).then(userAccount => {
           if (!userAccount || md5(userAccount.email) != jwtPayload.signature) {

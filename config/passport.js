@@ -11,7 +11,9 @@ passport.use(new LocalStrategy(
   },
   function(email, password, done) {
     // When a user tries to sign in this code runs
-    db.User.findOne({email: email}).then(function(dbUser) {
+    db.findOne({userName: email}).then(function(dbUser) {
+      console.log(dbUser)
+      console.log(email)
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {
@@ -19,7 +21,10 @@ passport.use(new LocalStrategy(
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (md5(password)!==dbUser.password) {
+      else if (md5(password)!==dbUser.md5Password) {
+        console.log(password)
+        console.log(md5(password))
+        console.log(dbUser.password)
         return done(null, false, {
           message: "Incorrect password."
         });
@@ -34,6 +39,8 @@ passport.use(new LocalStrategy(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
+  console.log("here")
+  console.log(user)
   cb(null, user);
 });
 

@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar/Navbar"
 
 const PublicRoutes=()=>{
     return <Router>
+        <Navbar />
         <Switch>
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/signup" component={SignUp} />
