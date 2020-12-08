@@ -73,7 +73,6 @@ class Login extends Component {
     const { formErrors } = this.state;
 
 
-<<<<<<< HEAD:my-app/src/pages/login/login.js
     return (
       <Router className="Login">
         <div className="wrapper">
@@ -101,39 +100,6 @@ class Login extends Component {
       </Router>
     );
   }
-=======
-  return (
-    <Router className="Login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
-        <p>Sign Up here</p>
-                <ul>
-                    <li><Link to="/signup">Sign Up</Link></li>
-                </ul>
-      </Form>
-      
-    </Router>
-  );
->>>>>>> main:client/src/pages/login/login.js
 }
 
 export default Login;
