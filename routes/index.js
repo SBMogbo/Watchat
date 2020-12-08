@@ -1,19 +1,9 @@
-<<<<<<< HEAD:my-app/routes/index.js
-const express = require("express");
-const bodyParser = require("body-parser");
-const InitiateMongoServer = require("./config/db");
-const user = require("./routes/user");
-
-// Initiate Mongo Server
-InitiateMongoServer();
-=======
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api/account");
 
 // API Routes
 router.use("/api/user", apiRoutes);
->>>>>>> main:routes/index.js
 
 const app = express();
 
