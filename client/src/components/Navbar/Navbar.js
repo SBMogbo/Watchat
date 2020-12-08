@@ -37,7 +37,7 @@ function Navbar() {
           {/* Header Center */}
           <div className={'col-12 col-md-6 d-flex p-1 '}>
             <div className="col-4 d-flex justify-content-center header-option" title="Home">
-              < Link to="/" className="nav-link"> 
+              < Link to="/home" className="nav-link"> 
               <HomeIcon fontSize="large"/>
               </Link>
               
@@ -78,8 +78,8 @@ function Navbar() {
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="reviews" className="nav-link">Reviews</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to="/details" className="nav-link">Details</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to ="/signup" className="nav-link">Logout</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/movieDetails" className="nav-link">Details</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to ="/login" className="nav-link">Logout</Link></MenuItem>
             </Menu>
 
 
