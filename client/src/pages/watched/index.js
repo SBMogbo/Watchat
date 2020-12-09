@@ -2,12 +2,14 @@
 import {Row, Col} from "react-bootstrap";
 import "./style.css";
 import CategoryButtons from "../../components/CategoryButtons/index";
-
+import Navbar from "../../components/Navbar/Navbar";
 
 
 
 function Watched () {
     return (
+        <>
+        <Navbar />
         <div className="container">
             <Row className="title-row">
                 <Col>
@@ -21,6 +23,7 @@ function Watched () {
                 </Col>
             </Row>
         </div>
+        </>
         
     )
 }
