@@ -7,42 +7,37 @@ import {
     Button,
 } from "react-bootstrap";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
-import API from "../../utils/API" 
+import API from "../../utils/API"
 import { useEffect, useState } from "react";
 
 
 
 function MovieDetails(props) {
-    const [search, setSearch] = useState('');
     const [results, setResults] = useState('')
-    console.log(props)
     useEffect(() => {
-    API.omdbSearchById(props.movieId)
-                .then((res) => {
-                    console.log(res)
-                    const response = res;
-                    let results = response;
-                    // map through the array
-                    results = results.map((result) => {
-                        // store each movie information in a new object
-                        result = {
-                            key: result.imdbID,
-                            id: result.imdbID,
-                            poster: result.Poster,
-                            title: result.Title,
-                            // year: result.Year,
-                            // type: result.Type,
-                        };
-                        return result;
-                    });
-                //     console.log("response", response)
-                //     console.log("movies", results)
-                //     setResults(results)
-                })
-                .catch((err) => {
-                    console.log('ERROR ' + err);
-                });
-            }, [props.movieId])
+        API.omdbSearchById(props.movieId)
+            .then((res) => {
+                const response = res;
+                let results = response;
+                // map through the array
+
+                // store each movie information in a new object
+                const result = {
+                    key: results.imdbID,
+                    id: results.imdbID,
+                    poster: results.Poster,
+                    title: results.Title,
+                    type: results.Type,
+                    imdbRating: results.imdbRating,
+                    rated: results.Rated,
+                    genre: results.Genre
+                };
+                setResults(result)
+            })
+            .catch((err) => {
+                console.log('ERROR ' + err);
+            });
+    }, [props.movieId])
     return (
         <div className="container">
             <Row>
@@ -51,11 +46,12 @@ function MovieDetails(props) {
                     <Row>
                         <Col>
                             <Card>
-                                <Card.Img src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg">
-                                    
+                                <Card.Img src={results.poster}>
+
                                 </Card.Img>
                                 <Card.Footer>
-                                    Movie
+                                <button id={results.id}>Seen</button>
+                                <button id={results.id}>My List</button>
                                 </Card.Footer>
                             </Card>
                         </Col>
@@ -64,17 +60,20 @@ function MovieDetails(props) {
                         <Col>
                             <Card>
                                 <Card.Header>
-                                    IMDB RATINGS
+                                Info
                                 </Card.Header>
                                 <Card.Body>
                                     <Row>
-                                        Ratings
+                                    Name: {results.title}
                                     </Row>
                                     <Row>
-                                        Genre
+                                    IMDB Rating: {results.imdbRating}
                                     </Row>
                                     <Row>
-                                        Age Rating
+                                    Rated: {results.rated}
+                                    </Row>
+                                    <Row>
+                                    Genre: {results.genre}
                                     </Row>
                                 </Card.Body>
                             </Card>
@@ -112,7 +111,7 @@ function MovieDetails(props) {
                     </Row>
                     <Row>
                         <Col>
-                            <ProfileRecommend/>
+                            <ProfileRecommend />
                         </Col>
 
                     </Row>
