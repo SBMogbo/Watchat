@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import SignUp from "../pages/signup/signUp"
 import Login from "../pages/login/login"
 
-const PublicRoutes=()=>{
+const PublicRoutes = () => {
     return <Router>
         <Switch>
             <Route exact={true} path="/login" component={Login} />
