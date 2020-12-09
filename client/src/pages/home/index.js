@@ -79,18 +79,18 @@ function Home(props) {
                     </Col>
                 </Row>
                 <Row>
-                {results.map(results => {
-                    return (
-                        
-                            <Col md="3">
+                    {results.map(result => {
+                        return (
+                            <Col md="3" key={result.id}>
                                 <MovieCard
-                                    id={results.id}
-                                    title={results.title}
-                                    poster={results.poster}
+                                    onMovieClick={props.onMovieClick}
+                                    id={result.id}
+                                    title={result.title}
+                                    poster={result.poster}
                                 />
                             </Col>
-                    )
-                })}
+                        )
+                    })}
                 </Row>
             </div>
         )

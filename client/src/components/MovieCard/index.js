@@ -1,16 +1,20 @@
 import { Card } from "react-bootstrap";
+import { useHistory } from "react-router";
 
 
 function MovieCard(props) {
-    console.log(props)
+    const history = useHistory();
+
+    function onClick() {
+        props.onMovieClick(props.id)
+        history.push("/movieDetails")
+    }
     return (
-        <Card key={props.id}>
-            <Card.Img id={props.id} variant="top" src={props.poster} />
-
+        <Card id={props.id} onClick={onClick}>
+            <Card.Img variant="top" src={props.poster} />
             <Card.Text>
-                <p>{props.title}</p>
+                <span>{props.title}</span>
             </Card.Text>
-
         </Card>
     )
 }

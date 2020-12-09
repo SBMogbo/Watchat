@@ -7,9 +7,42 @@ import {
     Button,
 } from "react-bootstrap";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
+import API from "../../utils/API" 
+import { useEffect, useState } from "react";
 
 
-function MovieDetails() {
+
+function MovieDetails(props) {
+    const [search, setSearch] = useState('');
+    const [results, setResults] = useState('')
+    console.log(props)
+    useEffect(() => {
+    API.omdbSearchById(props.movieId)
+                .then((res) => {
+                    console.log(res)
+                    const response = res;
+                    let results = response;
+                    // map through the array
+                    results = results.map((result) => {
+                        // store each movie information in a new object
+                        result = {
+                            key: result.imdbID,
+                            id: result.imdbID,
+                            poster: result.Poster,
+                            title: result.Title,
+                            // year: result.Year,
+                            // type: result.Type,
+                        };
+                        return result;
+                    });
+                //     console.log("response", response)
+                //     console.log("movies", results)
+                //     setResults(results)
+                })
+                .catch((err) => {
+                    console.log('ERROR ' + err);
+                });
+            }, [props.movieId])
     return (
         <div className="container">
             <Row>
