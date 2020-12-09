@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import SignUp from "../pages/signup/signUp"
 import Login from "../pages/login/login"
@@ -11,18 +11,30 @@ import Watchlist from "../pages/watchlist/index"
 import Navbar from "../components/Navbar/Navbar"
 
 const PrivateRoutes = () => {
+    const [search, setSearch] = useState({});
+
+    const onSearch = function (query) {
+        const search = {
+            location: window.location.hash,
+            query,
+        };
+        setSearch(search);
+    }
+
     return <Router>
-        <Navbar />
+        <Navbar onSearch={onSearch}/>
         <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/movieDetails" component={MovieDetails} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/reviews" component={Reviews} />
-            <Route exact path="/watched" component={Watched} />
-            <Route exact path="/watchlist" component={Watchlist} />
+            <Route exact path="/" ><Login/></Route>
+            <Route exact path="/signup" ><SignUp/></Route>
+            <Route exact path="/login" ><Login/></Route>
+            <Route exact path="/home" >
+                <Home search={search}/>
+            </Route>
+            <Route exact path="/movieDetails" ><MovieDetails/></Route>
+            <Route exact path="/profile" ><Profile/></Route>
+            <Route exact path="/reviews" ><Reviews/></Route>
+            <Route exact path="/watched" ><Watched/></Route>
+            <Route exact path="/watchlist" ><Watchlist/></Route>
             <Redirect to="/" />
         </Switch>
     </Router>
