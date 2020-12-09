@@ -9,13 +9,10 @@ import API from "../../utils/API";
 
 
 function Home(props) {
-    const [search, setSearch] = useState('');
     const [results, setResults] = useState('')
 
     useEffect(() => {
         if (props.search && props.search.location === window.location.hash) {
-            setSearch(props.search.query);
-
             API.omdbSearch(props.search.query)
                 .then((res) => {
                     const response = res.Search;

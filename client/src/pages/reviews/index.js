@@ -5,7 +5,7 @@ import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
 
 
-function Reviews() {
+function Reviews(props) {
     return (
         <div className="container">
             <Row classname="title-row">

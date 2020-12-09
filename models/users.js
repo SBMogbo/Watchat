@@ -21,38 +21,6 @@ const users = new Schema({
     type:String,
   },
 
-  watched: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-        poster: String,
-      },
-    ]
-  },
-
-  toWatch: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-        poster: String,
-      },
-    ]
-  },
-
-  reviews: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-        poster: String,
-        reviewTitle: String,
-        review: String,
-        recommendationId: String,
-      }
-    ]
-  }
 });
 
 const User = mongoose.model('Users', users);
