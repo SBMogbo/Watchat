@@ -20,18 +20,18 @@ function ReviewCard(props) {
     const reviewGlobalStore = (event) => {
         event.preventDefault();
         if (!title?.trim()) return;
+        if (!reviewInput?.trim()) return;
         const reviewTitle = title
         dispatch(setReviewTitle(reviewTitle));
         console.log(reviewTitle)
         console.log(tempReviewTitle)
         setTitle('')
 
-        event.preventDefault();
-        if (!reviewInput?.trim()) return;
         const review = reviewInput
         dispatch(setReview(review));
         setReviewInput('')
-        
+
+        props.saveReview()
     }
 
     return (

@@ -12,7 +12,7 @@ function Reviews(props) {
     const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
     const recommendedId = useSelector(state => state.recommendedId);
-    const reviewTitle = useSelector(state => state.reviewTitle);
+    const reviewTitle = useSelector( state => state.reviewTitle);
     const review = useSelector(state => state.review);
     const userId = localStorage.getItem("authorization-token")
     function saveReview(props) {
@@ -30,10 +30,6 @@ function Reviews(props) {
                 // props.history.push("/viewReviewPage")
             })
             .catch(err => console.log(err));
-    }
-
-    function getRecommendedMovieId() {
-
     }
 
     useEffect(() => {
@@ -69,7 +65,7 @@ function Reviews(props) {
                 <Col className="sidebar" sm={3}>
                     <div className="movieCard">
                         <MovieCard
-                            getRecommendedMovieId={getRecommendedMovieId}
+                           
                             id={results.id}
                             title={results.title}
                             poster={results.poster}
