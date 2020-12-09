@@ -16,12 +16,17 @@ const users = new Schema({
     type: String,
     required: true,
   },
+  
+  profileImage: {
+    type:String,
+  },
 
   watched: {
     type: Array,
     movies: [
       {
         id: String,
+        poster: String,
       },
     ]
   },
@@ -31,6 +36,7 @@ const users = new Schema({
     movies: [
       {
         id: String,
+        poster: String,
       },
     ]
   },
@@ -40,6 +46,7 @@ const users = new Schema({
     movies: [
       {
         id: String,
+        poster: String,
         reviewTitle: String,
         review: String,
         recommendationId: String,

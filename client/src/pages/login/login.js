@@ -1,8 +1,11 @@
 // import React, { useState } from "react";
-import { Component } from 'react';
+import { useState } from 'react';
 import '../style.css';
 import { Link } from 'react-router-dom';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+import API from "../../utils/API"
+import { useStoreContext } from '../../utils/GlobalState';
+import { LOG_IN } from '../../utils/actions';
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -21,35 +24,57 @@ const formValid = ({ formErrors, ...rest }) => {
   return valid;
 };
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: null,
-      password: null,
-      formErrors: {
-        username: "",
-        password: ""
-      }
-    };
-  }
-  handleSubmit = event => {
+function Login(props) {
+  const dispatch = useStoreContext()[1];
+  const [state, setState] = useState({
+    username: null,
+    password: null,
+    formErrors: {
+      username: "",
+      password: ""
+    }
+  })
+  // constructor(props) {
+  //   super(props);
+  //   state = {
+  //     username: null,
+  //     password: null,
+  //     formErrors: {
+  //       username: "",
+  //       password: ""
+  //     }
+  //   };
+  // }
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (formValid(this.state)) {
-      console.log(`
-      username:${this.state.username}
-      password:${this.state.password}
-      `);
+    if (formValid(state)) {
+      // console.log(`
+      // username:${state.username}
+      // password:${state.password}
+      // `);
+      try {
+        const response = await API.logIn(state.username, state.password);
+        localStorage.setItem("authorization-token", response.data.token);
+        dispatch({
+          type: LOG_IN,
+          payload: response.data
+        })
+      } catch (error) {
+        console.log(error)
+        alert("Invalid credentials!");
+      }
+      props.history.push("/home")
 
     } else {
       console.error("error form is invalid");
     }
   };
-  handleChange = event => {
+
+  const handleChange = event => {
     event.preventDefault();
     const { name, value } = event.target;
-    let formErrors = { ...this.state.formErrors };
+    let formErrors = { ...state.formErrors };
 
     switch (name) {
       case "username":
@@ -65,41 +90,39 @@ class Login extends Component {
       default:
         break;
     }
-    this.setState({ formErrors, [name]: value },
-      () => console.log(this.state));
+    setState({ ...state, formErrors, [name]: value });
 
   }
-  render() {
-    const { formErrors } = this.state;
 
 
-    return (
-      <Router className="Login">
-        <div className="wrapper">
-          <h1 style={{ color: "#F4CA16" }}>Welcome to Watchat</h1>
-          <div className="form-wrapper">
-            <h1>Login to your  Account</h1>
-            <form onSubmit={this.handleSubmit} noValidate>
-              <div className="username">
-                <label htmlFor="username">Username</label>
-                <input type="text" className="" placeholder=" Enter username" name="username" noValidate
-                  onChange={this.handleChange} />
-              </div>
-              <div className="password">
-                <label htmlFor="password">Password</label>
-                <input type="password" className="" placeholder=" Enter Password" name="password" onChange={this.handleChange} />
 
-              </div>
-              <div className="createAccount">
-                <button type="submit">Login</button>
-                <p><Link to="/login">Have an Account?</Link></p>
-              </div>
-            </form>
-          </div>
+  return (
+    <Router className="Login">
+      <div className="wrapper">
+        <h1 style={{ color: "#F4CA16" }}>Welcome to Watchat</h1>
+        <div className="form-wrapper">
+          <h1>Login to your  Account</h1>
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="username">
+              <label htmlFor="username">Username</label>
+              <input type="text" className="" placeholder=" Enter username" name="username" noValidate
+                onChange={handleChange} />
+            </div>
+            <div className="password">
+              <label htmlFor="password">Password</label>
+              <input type="password" className="" placeholder=" Enter Password" name="password" onChange={handleChange} />
+
+            </div>
+            <div className="createAccount">
+              <button type="submit">Login</button>
+              <p><Link to="/signup">Create an Account?</Link></p>
+            </div>
+          </form>
         </div>
-      </Router>
-    );
-  }
+      </div>
+    </Router>
+  );
 }
+
 
 export default Login;

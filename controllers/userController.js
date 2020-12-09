@@ -57,7 +57,7 @@ module.exports = {
     } else {
       try {
         const jwtPayload = jwt.verify(req.get("Authorization"), "jwtsecretpassphrase");
-        db.User.findOne({
+        db.findOne({
           _id: jwtPayload._id
         }).then(userAccount => {
           if (!userAccount || md5(userAccount.email) != jwtPayload.signature) {
