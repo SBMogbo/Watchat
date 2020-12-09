@@ -9,13 +9,20 @@ import {
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 import API from "../../utils/API"
 import { useEffect, useState } from "react";
+import {useSelector} from "react-redux";
 
 
 
 function MovieDetails(props) {
     const [results, setResults] = useState('')
+    const movieId = useSelector( state => state.movieId)
+
+
+
+
+
     useEffect(() => {
-        API.omdbSearchById(props.movieId)
+        API.omdbSearchById(movieId)
             .then((res) => {
                 const response = res;
                 let results = response;
@@ -37,7 +44,7 @@ function MovieDetails(props) {
             .catch((err) => {
                 console.log('ERROR ' + err);
             });
-    }, [props.movieId])
+    }, [movieId])
     return (
         <div className="container">
             <Row>
