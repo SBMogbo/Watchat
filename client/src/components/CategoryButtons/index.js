@@ -1,19 +1,42 @@
 import "./style.css";
 import {Button} from "react-bootstrap";
+import {IconButton} from '@material-ui/core';
 
 
 function CategoryButtons() {
     return (
         <>
-  <Button variant="outline-secondary">All</Button>{' '}
-  <Button variant="outline-secondary">Movies</Button>{' '}
-  <Button variant="outline-secondary">TV Shows</Button>{' '}
-  <Button variant="outline-secondary">Documentaries</Button>{' '}
-  <Button variant="outline-secondary">Genre</Button>{' '}
-  <Button variant="outline-secondary">Anime</Button>{' '}
-  <Button variant="outline-secondary">Year</Button>{' '}
-  <Button variant="outline-secondary">Rating</Button>
-</>
+            <IconButton>
+                <Button variant="outline-light">All</Button>
+                {' '} </IconButton>
+            <IconButton>
+                <Button variant="outline-light">Movies</Button>
+                {' '} </IconButton>
+            <IconButton>
+                <Button variant="outline-light">TV Shows</Button>
+                {' '} </IconButton>
+
+                <IconButton>
+                <Button variant="outline-light">Documentaries</Button>
+                {' '} </IconButton>
+
+                <IconButton>
+                <Button variant="outline-light">Genre</Button>
+                {' '} </IconButton>
+
+                <IconButton>
+                <Button variant="outline-light">Anime</Button>
+                {' '} </IconButton>
+
+                <IconButton>
+                <Button variant="outline-light">Year</Button>
+                {' '} </IconButton>
+
+                <IconButton>
+                <Button variant="outline-light">Rating</Button>
+                {' '} </IconButton>
+
+        </>
     )
 
 }

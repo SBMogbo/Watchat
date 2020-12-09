@@ -4,11 +4,14 @@ import ReviewCard from "../../components/ReviewCard";
 import {Row, Col} from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 
 function Reviews() {
     return (
+        <>
+        <Navbar />
         <div className="container">
             <Row classname="title-row">
                 <Col>
@@ -16,8 +19,8 @@ function Reviews() {
                 </Col>
             </Row>
             <Row classname="username-row">
-                <Col>
-                    <h5>Username</h5>
+                <Col style={{color:"white"}}>
+                    <h5>User001</h5>
                 </Col>
             </Row>
 
@@ -46,7 +49,7 @@ function Reviews() {
 
 
         </div>
-
+</>
     )
 }
 

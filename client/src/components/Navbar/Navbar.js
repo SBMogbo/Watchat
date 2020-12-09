@@ -8,6 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import MovieFilterSharpIcon from '@material-ui/icons/MovieFilterSharp';
+
+
 
 
 import "./style.css";
@@ -31,7 +34,8 @@ function Navbar() {
           {/*Header Left*/}
 
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-               
+               <MovieFilterSharpIcon  style={{marginTop:"14px", color:"#f4ca16"}}fontSize="large"/>
+               <h3 style={{marginTop:"15px", marginLeft:"10px", color:"white"}}>WatchAt</h3>
 
 
           </div>
@@ -57,10 +61,10 @@ function Navbar() {
 
           {/* Start of Header Right*/}
 
-          <div className="col-12 col-md-3 d-flex justify-content-center p-1">
+          <div style={{justifyContent:"space-between"}}className="col-12 col-md-3 d-flex justify-content-center p-1">
 
-            <SearchIcon fontSize="large"/>
-            <input className={'header_input'} placeholder="Search Movies" type="text"/>
+            <SearchIcon  style={{color:"white"}}fontSize="large"/>
+            <input style={{}}className={'header_input'} placeholder="Search Movies" type="text"/>
 
 
             {/* This is for the Drop Down Far Right. */}
@@ -68,7 +72,7 @@ function Navbar() {
 
             <Button className="expand-button" aria-controls="simple-menu" aria-haspopup="true"
                     onClick={handleClick}>
-              <ExpandMoreIcon/>
+              <ExpandMoreIcon style={{color:"white"}}/>
             </Button>
             <Menu
                 id="simple-menu"
@@ -76,6 +80,7 @@ function Navbar() {
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="reviews" className="nav-link">Reviews</Link></MenuItem>
