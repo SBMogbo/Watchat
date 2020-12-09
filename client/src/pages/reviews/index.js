@@ -11,10 +11,19 @@ import { useSelector } from "react-redux";
 function Reviews(props) {
     const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
+    const recommendedId = useSelector(state => state.recommendedId);
+    const reviewTitle = useSelector(state => state.reviewTitle);
+    const review = useSelector(state => state.review);
     const userId = localStorage.getItem("authorization-token")
-    function saveToReviewsList(props) {
-        API.saveToReviewsList(userId, movieId, results.poster, results.title
-            // reviewTitle, review, recommendationId
+    function saveReview(props) {
+        API.saveToReviewsList(
+            userId,
+            movieId,
+            results.poster,
+            results.title,
+            reviewTitle,
+            review,
+            recommendedId
         )
             .then(res => {
                 console.log('Added to Reviewed list successful')
@@ -22,24 +31,21 @@ function Reviews(props) {
             })
             .catch(err => console.log(err));
     }
-    
+
+    function getRecommendedMovieId() {
+
+    }
+
     useEffect(() => {
         API.omdbSearchById(movieId)
             .then((res) => {
                 const response = res;
                 let results = response;
-                // map through the array
-
-                // store each movie information in a new object
                 const result = {
                     key: results.imdbID,
                     id: results.imdbID,
                     poster: results.Poster,
                     title: results.Title,
-                    // type: results.Type,
-                    // imdbRating: results.imdbRating,
-                    // rated: results.Rated,
-                    // genre: results.Genre
                 };
                 setResults(result)
             })
@@ -49,12 +55,12 @@ function Reviews(props) {
     }, [movieId])
     return (
         <div className="container">
-            <Row classname="title-row">
+            <Row className="title-row">
                 <Col>
                     <h1>Reviews</h1>
                 </Col>
             </Row>
-            <Row classname="username-row">
+            <Row className="username-row">
                 <Col>
                     <h5>Username</h5>
                 </Col>
@@ -63,7 +69,7 @@ function Reviews(props) {
                 <Col className="sidebar" sm={3}>
                     <div className="movieCard">
                         <MovieCard
-                            onMovieClick={""}
+                            getRecommendedMovieId={getRecommendedMovieId}
                             id={results.id}
                             title={results.title}
                             poster={results.poster}
@@ -75,7 +81,7 @@ function Reviews(props) {
 
                 </Col>
                 <Col className="review-area" sm={9}>
-                    <ReviewCard />
+                    <ReviewCard saveReview={saveReview} />
                 </Col>
             </Row>
 

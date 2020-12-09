@@ -5,40 +5,42 @@ import CategoryButtons from "../../components/CategoryButtons/index";
 import PlatformButtons from "../../components/PlatformButtons";
 import MovieCard from "../../components/MovieCard";
 import API from "../../utils/API";
+import { useSelector } from "react-redux";
 // import { propTypes } from "react-bootstrap/esm/Image";
 
 
 function Home(props) {
     const [results, setResults] = useState('')
+    const search = useSelector(state => state.search);
 
     useEffect(() => {
-        if (props.search && props.search.location === window.location.hash) {
-            API.omdbSearch(props.search.query)
-            .then((res) => {
-                const response = res.Search;
-                let results = response;
-                // map through the array
-                results = results.map((result) => {
-                    // store each movie information in a new object
-                    result = {
-                        key: result.imdbID,
-                        id: result.imdbID,
-                        poster: result.Poster,
-                        title: result.Title,
-                        // year: result.Year,
-                        // type: result.Type,
-                    };
-                    return result;
+        if (search && search.location === window.location.hash) {
+            API.omdbSearch(search.query)
+                .then((res) => {
+                    const response = res.Search;
+                    let results = response;
+                    // map through the array
+                    results = results.map((result) => {
+                        // store each movie information in a new object
+                        result = {
+                            key: result.imdbID,
+                            id: result.imdbID,
+                            poster: result.Poster,
+                            title: result.Title,
+                            // year: result.Year,
+                            // type: result.Type,
+                        };
+                        return result;
+                    });
+                    // console.log("response", response)
+                    // console.log("movies", results)
+                    setResults(results)
+                })
+                .catch((err) => {
+                    console.log('ERROR ' + err);
                 });
-                // console.log("response", response)
-                // console.log("movies", results)
-                setResults(results)
-            })
-            .catch((err) => {
-                console.log('ERROR ' + err);
-            });
-    };
-}, [props.search])
+        };
+    }, [search])
 
     return (results.length === 0) ? (
         <div className="container">

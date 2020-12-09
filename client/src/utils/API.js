@@ -5,11 +5,12 @@ const APIKEY = "f3927da0";
 
 const API = {
   omdbSearch: async function (query) {
+    // console.log("searching")
     const response = await fetch(BASEURL + query + '&apikey=' + APIKEY);
     return await response.json()
   },
   omdbSearchById:async function (id) {
-    console.log(IDURL + id + '&apikey=' + APIKEY)
+    // console.log(IDURL + id + '&apikey=' + APIKEY)
     const response = await fetch(IDURL + id + '&apikey=' + APIKEY);
     return await response.json()
   },
@@ -47,7 +48,7 @@ const API = {
   getToWatchList: function () {
     return axios.get("/api/toWatch");
   },
-  saveToRewiewsList: function (userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
+  saveToReviewsList: function (userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
     return axios.post("/api/reviews", { userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
   },
   getRewiewsList: function () {

@@ -11,15 +11,8 @@ import Watchlist from "../pages/watchlist/index"
 import Navbar from "../components/Navbar/Navbar"
 
 const PrivateRoutes = () => {
-    const [search, setSearch] = useState({});
+
     
-    const onSearch = function (query) {
-        const search = {
-            location: window.location.hash,
-            query,
-        };
-        setSearch(search);
-    }
     const [movieId, setMovieId] = useState({});
 
     const onMovieClick = function (id) {
@@ -28,13 +21,13 @@ const PrivateRoutes = () => {
     } 
 
     return <Router>
-        <Navbar onSearch={onSearch}/>
+        <Navbar/>
         <Switch>
             <Route exact path="/" ><Login/></Route>
             <Route exact path="/signup" ><SignUp/></Route>
             <Route exact path="/login" ><Login/></Route>
             <Route exact path="/home" >
-                <Home search={search} onMovieClick={onMovieClick}/>
+                <Home onMovieClick={onMovieClick}/>
             </Route>
             <Route exact path="/movieDetails" >
                 <MovieDetails movieId={movieId}/>

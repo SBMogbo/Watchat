@@ -20,7 +20,7 @@ function Watched(props) {
         
         // console.log()
         dispatch(setMovieId(results[1].id))
-        history.push("/movieDetails")
+        history.push("/reviews")
     }
 
     useEffect(() => {

@@ -9,17 +9,23 @@ import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./style.css";
-
+import {useDispatch} from "react-redux";
+import {setSearch} from "../../utils/AppSlice";
 
 
 function Navbar(props) {
   const [query, setQuery] = useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const dispatch = useDispatch();
   const movieSearchFunc = (event) => {
     event.preventDefault();
     if (!query?.trim()) return;
-    props?.onSearch(query);
+      // props?.onSearch(query);
+      const search = {
+        location: window.location.hash,
+        query,
+      };
+      dispatch(setSearch(search));
     setQuery('')
   };
 
