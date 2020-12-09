@@ -1,12 +1,13 @@
-const userController = require('../controllers/userController');
+const toWatchController = require('../controllers/toWatchController');
 const router = require("express").Router();
 const passport = require("../config/passport");
 
 router.route("/")
-  .get(userController.findAll)
+  .get(toWatchController.findAll)
+  .post(toWatchController.create);
 
 router.route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
+  .get(toWatchController.findById)
+ 
 
 module.exports = router;

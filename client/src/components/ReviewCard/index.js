@@ -11,6 +11,7 @@ function ReviewCard() {
                         <Card.Title className="review-title">Leave a Review</Card.Title>
                         <InputGroup size="sm" className="mb-3">
                             <div className="form-group">
+                                <input placeholder="Review Title"></input>
                                 <textarea placeholder="Write your review..."className="form-control" id="exampleFormControlTextarea1" rows="20" cols="90"/>
                             </div>
                         </InputGroup>

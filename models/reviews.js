@@ -3,19 +3,31 @@ const Schema = mongoose.Schema;
 
 const reviews = new Schema({
   reviews: {
-    type: Array,
-    movies: [
-      {
-        userId: String,
-        movieId: String,
-        poster: String,
-        reviewTitle: String,
-        review: String,
-        recommendationId: String,
-      }
-    ]
+
+    userId: String,
+    movieId: String,
+    poster: String,
+    movieTitle: String,
+    reviewTitle: String,
+    review: String,
+    recommendationId: String,
   }
+  // userId: {
+  //   type: String,
+  // },
+
+  // movieId: {
+  //   type: String,
+  // },
+
+  // poster: {
+  //   type: String,
+  // },
+  
+  // movieTitle: {
+  //   type:String,
+  // },
 })
-const Review = mongoose.model('Reviews', review);
+const Review = mongoose.model('Reviews', reviews);
 
 module.exports = Review;

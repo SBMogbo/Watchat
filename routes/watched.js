@@ -1,13 +1,13 @@
-const userController = require('../controllers/userController');
+const watchedController = require('../controllers/watchedController');
 const router = require("express").Router();
 const passport = require("../config/passport");
 
 router.route("/")
-  .get(userController.findAll)
-
+  .get(watchedController.findAll)
+  .post(watchedController.create);
 
 router.route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
+  .get(watchedController.findById)
+  
 
 module.exports = router;

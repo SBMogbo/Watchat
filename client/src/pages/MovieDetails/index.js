@@ -9,15 +9,30 @@ import {
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 import API from "../../utils/API"
 import { useEffect, useState } from "react";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
 function MovieDetails(props) {
     const [results, setResults] = useState('')
-    const movieId = useSelector( state => state.movieId)
-
-
+    const movieId = useSelector(state => state.movieId)
+    const userId = useSelector(state => state.user)
+    function saveToWatchedList() {
+        API.saveToWatchedList(userId, movieId, results.poster, results.title)
+            .then(res => {
+                console.log('Added to watched list successful')
+                // props.history.push("/login")
+            })
+            .catch(err => console.log(err));
+    }
+    function saveToToWatchList() {
+        API.saveToToWatchList(userId, movieId, results.poster, results.title)
+            .then(res => {
+                console.log('Added to toWatch list successful')
+                // props.history.push("/login")
+            })
+            .catch(err => console.log(err));
+    }
 
 
 
@@ -57,8 +72,8 @@ function MovieDetails(props) {
 
                                 </Card.Img>
                                 <Card.Footer>
-                                <button id={results.id}>Seen</button>
-                                <button id={results.id}>My List</button>
+                                    <button onClick={saveToWatchedList}>Seen</button>
+                                    <button onClick={saveToToWatchList}>My List</button>
                                 </Card.Footer>
                             </Card>
                         </Col>
@@ -67,20 +82,20 @@ function MovieDetails(props) {
                         <Col>
                             <Card>
                                 <Card.Header>
-                                Info
+                                    Info
                                 </Card.Header>
                                 <Card.Body>
                                     <Row>
-                                    Name: {results.title}
+                                        Name: {results.title}
                                     </Row>
                                     <Row>
-                                    IMDB Rating: {results.imdbRating}
+                                        IMDB Rating: {results.imdbRating}
                                     </Row>
                                     <Row>
-                                    Rated: {results.rated}
+                                        Rated: {results.rated}
                                     </Row>
                                     <Row>
-                                    Genre: {results.genre}
+                                        Genre: {results.genre}
                                     </Row>
                                 </Card.Body>
                             </Card>

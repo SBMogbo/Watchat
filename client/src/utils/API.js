@@ -34,6 +34,24 @@ const API = {
         Authorization: localStorage.getItem("authorization-token")
       }
     })
-  }
+  },
+  saveToWatchedList: function (userId, movieId, poster, movieTitle) {
+    return axios.post("/api/watched", {userId, movieId, poster, movieTitle});
+  },
+  getWatchedList: function () {
+    return axios.get("/api/watched");
+  },
+  saveToToWatchList: function (userId, movieId, poster, movieTitle) {
+    return axios.post("/api/toWatch", { userId, movieId, poster, movieTitle });
+  },
+  getToWatchList: function () {
+    return axios.get("/api/toWatch");
+  },
+  saveToRewiewsList: function (userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
+    return axios.post("/api/reviews", { userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
+  },
+  getRewiewsList: function () {
+    return axios.get("/api/reviews");
+  },
 };
 export default API

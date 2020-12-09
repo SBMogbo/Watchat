@@ -1,17 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const watchedA = new Schema({
-  watchedA: {
-      type: Array,
-      movies: [
-        {
-          id: String,
-          poster: String,
-        },
-      ]
-  }
-})
-const WatchedB = mongoose.model('WatchedA', watchedB);
+const watched = new Schema({
+  userId: {
+    type: String,
+  },
 
-module.exports = WatchedB;
+  movieId: {
+    type: String,
+  },
+
+  poster: {
+    type: String,
+  },
+  
+  movieTitle: {
+    type:String,
+  },
+})
+const Watched = mongoose.model('Watched', watched);
+
+module.exports = Watched;
