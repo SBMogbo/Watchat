@@ -5,7 +5,6 @@ import Login from "../pages/login/login"
 
 const PublicRoutes = () => {
     return <Router>
-        <Navbar />
         <Switch>
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/signup" component={SignUp} />
