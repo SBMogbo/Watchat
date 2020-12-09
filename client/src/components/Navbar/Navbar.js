@@ -9,6 +9,7 @@ import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+
 import "./style.css";
 
 
@@ -30,7 +31,7 @@ function Navbar() {
           {/*Header Left*/}
 
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-            WatchAT
+               
 
 
           </div>

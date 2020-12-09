@@ -11,6 +11,7 @@ import Watchlist from "./pages/watchlist/index"
 // import logo from './logo.svg';
 import Navbar from "./components/Navbar/Navbar"
 import { HashRouter as Router, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route exact path="/reviews" component={Reviews} />
       <Route exact path="/watched" component={Watched} />
       <Route exact path="/watchlist" component={Watchlist} />
+      <Footer />
     </Router>
 
   );

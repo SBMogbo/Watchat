@@ -9,11 +9,11 @@ function ProfileMovieCard() {
   
     return(
       <>
-      <Card>
+      <Card bsStyle="default" style={{marginBottom:"40px"}}>
           <Card.Header>
               Movie
           </Card.Header>
-          <Card.Body className="card-body">
+          <Card.Body bsStyle="default" style={{paddingBottom:"260px"}}>
               <Row >
                 <Col sm={6} >
                 <Card.Img src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg"/>

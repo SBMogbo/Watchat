@@ -17,7 +17,7 @@ function MovieDetails() {
                     sm={4}>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="movie-card">
                                 <Card.Img src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg">
                                     
                                 </Card.Img>
@@ -29,35 +29,35 @@ function MovieDetails() {
                     </Row>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="rating-card">
                                 <Card.Header>
                                     IMDB RATINGS
                                 </Card.Header>
                                 <Card.Body>
-                                    <Row>
-                                        Ratings
+                                    <Row className="rating-row">
+                                        <h4>Ratings</h4>
                                     </Row>
-                                    <Row>
-                                        Genre
+                                    <Row className="rating-row"> 
+                                        <h4> Genre</h4>
                                     </Row>
-                                    <Row>
-                                        Age Rating
+                                    <Row className="rating-row">
+                                        <h4>Age Rating</h4>
                                     </Row>
                                 </Card.Body>
                             </Card>
                         </Col>
                     </Row>
                 </Col>
-                <Col classnaMe="right-side"
+                <Col className="right-side"
                     sm={8}>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="platform-card">
                                 <Card.Header>
                                     Availabe on...
                                 </Card.Header>
-                                <Card.Body>
-                                    <Button>
+                                <Card.Body bsStyle="defaault" style={{paddingBottom:"20px"}}>
+                                    <Button >
                                         Youtube
                                     </Button>
                                 </Card.Body>
@@ -66,11 +66,11 @@ function MovieDetails() {
                     </Row>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="user-card">
                                 <Card.Header>
                                     See what others have said
                                 </Card.Header>
-                                <Card.Body className="user-reviews">
+                                <Card.Body bsStyle="defaault" style={{paddingBottom:"260px"}}>
                                     User1234: This movie is great!!
 
                                 </Card.Body>
@@ -78,7 +78,7 @@ function MovieDetails() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="recommend-card">
                             <ProfileRecommend/>
                         </Col>
 

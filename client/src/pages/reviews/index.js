@@ -1,8 +1,10 @@
 // review page
+import "./style.css";
 import ReviewCard from "../../components/ReviewCard";
 import {Row, Col} from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
+
 
 
 function Reviews() {
@@ -18,19 +20,28 @@ function Reviews() {
                     <h5>Username</h5>
                 </Col>
             </Row>
+
             <Row>
-                <Col className="sidebar" sm={3}>
-                    <div className="movieCard">
-                    <MovieCard />
-                    </div>
-                    <div className="recommendedCard">
-                    <RecommendedCard />
-                    </div>
-                
-                    </Col>
-                <Col className="review-area"sm={9}>
-                    <ReviewCard />
-                    </Col>
+                <Col className="sidebar"
+                    sm={3}>
+                    <Row className="movieCard-row">
+
+                        <Col>
+                            <MovieCard/>
+                        </Col>
+                    </Row>
+
+                    <Row className="recommend-row">
+                        <Col>
+                            <RecommendedCard/>
+                        </Col>
+                    </Row>
+                </Col>
+
+                <Col className="review-area"
+                    sm={9}>
+                    <ReviewCard/>
+                </Col>
             </Row>
 
 

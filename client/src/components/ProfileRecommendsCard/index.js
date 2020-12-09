@@ -8,7 +8,7 @@ function ProfileRecommend() {
             <Card.Header>
                 Recommends
             </Card.Header>
-            <Card.Body className="card-body">
+            <Card.Body bsStyle="default" style={{paddingBottom:"120px"}}>
                 <Row>
                     <Col sm={2}>
                     <Card.Img variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
