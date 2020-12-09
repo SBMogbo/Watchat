@@ -19,6 +19,8 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@dicebear/avatars": "^4.5.1",
+    "@dicebear/avatars-identicon-sprites": "^4.5.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",

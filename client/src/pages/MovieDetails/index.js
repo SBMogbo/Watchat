@@ -9,7 +9,9 @@ import {
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 
 
+
 function MovieDetails() {
+    
     return (
         <div className="container">
             <Row>

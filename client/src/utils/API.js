@@ -10,4 +10,7 @@ export default {
   getUser: function(id) {
     return axios.get("/api/user/" + id);
   },
+  getContent:function(){
+    return axios.get("http://www.omdbapi.com/?apikey=f3927da0&s=")
+  }
 };
