@@ -11,7 +11,7 @@ passport.use(new LocalStrategy(
   },
   function(email, password, done) {
     // When a user tries to sign in this code runs
-    db.User.findOne({email: email}).then(function(dbUser) {
+    db.findOne({userName: email}).then(function(dbUser) {
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {
@@ -19,7 +19,7 @@ passport.use(new LocalStrategy(
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (md5(password)!==dbUser.password) {
+      else if (md5(password)!==dbUser.md5Password) {
         return done(null, false, {
           message: "Incorrect password."
         });

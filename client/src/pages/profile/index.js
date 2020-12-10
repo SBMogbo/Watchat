@@ -1,15 +1,12 @@
 // profile page
 import "./style.css";
-import {Row, Col, Card, Image, Nav } from "react-bootstrap";
+import {Row, Col, Card, Image } from "react-bootstrap";
 import ProfileMovieCard from "../../components/ProfileMovieCard";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
-import Navbar from "../../components/Navbar/Navbar";
-
 
 function Profile() {
     return (
         <>
-        <Navbar />
         <div className="container">
             <Row>
                 <Col className="left-top" sm={3}>
