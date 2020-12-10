@@ -38,9 +38,12 @@ function Navbar(props) {
   };
 
   return (
+    
     <div className="col-12 col-md-3 d-flex justify-content-center p-1">
       <MovieFilterSharpIcon style={{ marginTop: "14px", color: "#f4ca16" }} fontSize="large" />
       <h3 style={{ marginTop: "15px", marginLeft: "10px", color: "white" }}>WatchAt</h3>
+      
+
       {/* Header Center */}
       <div className={'col-12 col-md-6 d-flex p-1 '}>
         <div className="col-4 d-flex justify-content-center header-option" title="Home">
@@ -95,8 +98,8 @@ function Navbar(props) {
 
         </div>
       </div>
-
-    </div>
+</div>
+  
   )
 
 }

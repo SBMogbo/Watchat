@@ -1,9 +1,12 @@
 
 .header {
-
+    display: flex;
+    justify-content: space-evenly;
     background-color:#564d4d;
     z-index: 100;
     top: 0;
+    position: sticky;
+
   
 }
 
