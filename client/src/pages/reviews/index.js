@@ -1,4 +1,5 @@
 // review page
+import "./style.css";
 import ReviewCard from "../../components/ReviewCard";
 import { Row, Col } from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
@@ -8,11 +9,12 @@ import API from "../../utils/API";
 import { useSelector } from "react-redux";
 
 
+
 function Reviews(props) {
     const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
     const recommendedId = useSelector(state => state.recommendedId);
-    const reviewTitle = useSelector( state => state.reviewTitle);
+    const reviewTitle = useSelector(state => state.reviewTitle);
     const review = useSelector(state => state.review);
     const userId = localStorage.getItem("authorization-token")
     function saveReview(props) {
@@ -50,40 +52,45 @@ function Reviews(props) {
             });
     }, [movieId])
     return (
-        <div className="container">
-            <Row className="title-row">
-                <Col>
-                    <h1>Reviews</h1>
-                </Col>
-            </Row>
-            <Row className="username-row">
-                <Col>
-                    <h5>Username</h5>
-                </Col>
-            </Row>
-            <Row>
-                <Col className="sidebar" sm={3}>
-                    <div className="movieCard">
-                        <MovieCard
-                           
-                            id={results.id}
-                            title={results.title}
-                            poster={results.poster}
-                        />
-                    </div>
-                    <div className="recommendedCard">
-                        <RecommendedCard />
-                    </div>
+        <>
+            <div className="container">
+                <Row className="title-row">
+                    <Col>
+                        <h1>Reviews</h1>
+                    </Col>
+                </Row>
+                <Row className="username-row">
+                    <Col style={{ color: "white" }}>
+                        <h5>Username</h5>
 
-                </Col>
-                <Col className="review-area" sm={9}>
-                    <ReviewCard saveReview={saveReview} />
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className="sidebar" sm={3}>
+                        <Row className="movieCard-row">
+                            <Col>
+                                <MovieCard
 
+                                    id={results.id}
+                                    title={results.title}
+                                    poster={results.poster}
+                                />
+                            </Col>
+                        </Row>
+                        <Row className="recommend-row">
+                            <Col>
+                                <RecommendedCard />
+                            </Col>
+                        </Row>
 
-        </div>
+                    </Col>
+                    <Col className="review-area" sm={9}>
+                        <ReviewCard saveReview={saveReview} />
 
+                    </Col>
+                </Row>
+            </div>
+        </>
     )
 }
 

@@ -1,9 +1,8 @@
-import {Card} from "react-bootstrap";
-import {useHistory} from "react-router";
-import {useDispatch} from "react-redux";
-import {setMovieId} from "../../utils/AppSlice";
-import {setUser} from "../../utils/AppSlice";
-
+import { Card } from "react-bootstrap";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { setMovieId } from "../../utils/AppSlice";
+import { setUser } from "../../utils/AppSlice";
 
 function MovieCard(props) {
   const history = useHistory();
@@ -18,13 +17,14 @@ function MovieCard(props) {
   }
 
   return (
-      <Card id={props.id} onClick={onClick}>
-        <Card.Img variant="top" src={props.poster}/>
-        <Card.Text>
-          <span>{props.title}</span>
-        </Card.Text>
-      </Card>
+    <Card id={props.id} onClick={onClick} style={{ backgroundColor: "transparent", border: "none" }}>
+      <Card.Img variant="top" src={props.poster} />
+      <Card.Text style={{ color: "white", paddingTop: "13px", alignItems: 'center' }}>
+        <span>{props.title}</span>
+      </Card.Text>
+    </Card>
   )
+
 }
 
 export default MovieCard;

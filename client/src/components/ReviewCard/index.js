@@ -3,15 +3,15 @@ import { Card, Button, InputGroup } from "react-bootstrap";
 import "./style.css";
 import { useDispatch } from "react-redux";
 import { setReviewTitle, setReview } from "../../utils/AppSlice";
-
-//
+import { IconButton } from "@material-ui/core"
 import { useSelector } from "react-redux";
+
 function ReviewCard(props) {
 
     const tempReviewTitle = useSelector(state => state.reviewTitle);
     const tempReview = useSelector(state => state.review);
-// console.log(tempReviewTitle)
-// console.log(tempReview)
+    // console.log(tempReviewTitle)
+    // console.log(tempReview)
     // const [reviewTitle, setReviewTitle] = useState('')
     const [title, setTitle] = useState('');
     // const [review, setReview] = useState('')
@@ -37,16 +37,19 @@ function ReviewCard(props) {
     return (
         <>
             <div className="container">
-                <Card className="text-left">
+                <Card className="text-left" style={{ backgroundColor: "#564d4d", border: "none" }}>
                     <Card.Body>
-                        <Card.Title className="review-title">Leave a Review</Card.Title>
-                        <InputGroup size="sm" className="mb-3">
+                        <Card.Title style={{ padding: "20px 10px", color: "white", }}>Leave a Review</Card.Title>
+                        <InputGroup size="sm" className="mb-3" style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
                             <div className="form-group">
+
                                 <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Review Title"></input>
-                                <textarea value={reviewInput} type="text" onChange={(e) => setReviewInput(e.target.value)} placeholder="Write your review..." className="form-control" id="exampleFormControlTextarea1" rows="20" cols="90" />
+                                <textarea style={{ backgroundColor: "#dbd8e3", color: "black" }} value={reviewInput} type="text" onChange={(e) => setReviewInput(e.target.value)} placeholder="Write your review..." className="form-control" id="exampleFormControlTextarea1" rows="20" cols="90" />
                             </div>
                         </InputGroup>
-                        <Button onClick={reviewGlobalStore} variant="primary" className="button-right">Submit</Button>
+                        <IconButton>
+                            <Button onClick={reviewGlobalStore} variant="outline-light" style={{ borderRadius: "10px" }} className="button-right">Submit</Button>
+                        </IconButton>
                     </Card.Body>
                 </Card>
             </div>

@@ -29,18 +29,18 @@ function RecommendedCard(props) {
         const response = res.Search;
         let results = response[1];
         // map through the array
-        
-          // store each movie information in a new object
-          const result = {
-            key: results.imdbID,
-            id: results.imdbID,
-            poster: results.Poster,
-            title: results.Title,
-            // year: results.Year,
-            // type: results.Type,
-          }
-        
-      
+
+        // store each movie information in a new object
+        const result = {
+          key: results.imdbID,
+          id: results.imdbID,
+          poster: results.Poster,
+          title: results.Title,
+          // year: results.Year,
+          // type: results.Type,
+        }
+
+
         // console.log(results)
         // console.log("response", response)
         // console.log("movies", results)
@@ -49,19 +49,19 @@ function RecommendedCard(props) {
       .catch((err) => {
         console.log('ERROR ' + err);
       });
-      dispatch(setRecommendedId(results.id));
+    dispatch(setRecommendedId(results.id));
   };
   // console.log(results)
   return (results.length === 0) ? (
     <>
-      <Card>
+
+      <Card style={{ backgroundColor: "transparent", border: "none" }}>
         <Card.Body>
-          <Card.Text>
+          <Card.Text style={{ color: "white" }}>
             <h5>Recommended</h5>
             <form onSubmit={movieSearchFunc}>
               <input value={query} type="text" onChange={(e) => setQuery(e.target.value)} placeholder="Movie Title"></input>
             </form>
-
             <button onClick={movieSearchFunc}>search</button>
           </Card.Text>
         </Card.Body>
@@ -69,14 +69,13 @@ function RecommendedCard(props) {
     </>
   ) : (
       <>
-        <Card>
+        <Card style={{ backgroundColor: "transparent", border: "none" }}>
           <Card.Body>
-            <Card.Text>
+            <Card.Text style={{ color: "white" }}>
               <h5>Recommended</h5>
               <form onSubmit={movieSearchFunc}>
                 <input value={query} type="text" onChange={(e) => setQuery(e.target.value)} placeholder="Movie Title"></input>
               </form>
-
               <button onClick={movieSearchFunc}>search</button>
             </Card.Text>
           </Card.Body>

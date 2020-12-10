@@ -9,14 +9,14 @@ function ProfileMovieCard() {
   
     return(
       <>
-      <Card>
-          <Card.Header>
-              Movie
+      <Card bsStyle="default" style={{marginBottom:"40px", border:"none", borderRadius:"10px", backgroundColor:"transparent"}}>
+          <Card.Header style={{color:"white"}}>
+              <h5>Movie</h5>
           </Card.Header>
-          <Card.Body className="card-body">
+          <Card.Body bsStyle="default" style={{paddingBottom:"260px", backgroundColor:"#dbd8e3", borderRadius:"10px", boxShadow:"5px 5px 10px rgba(0,0,0,0.75)"}}>
               <Row >
                 <Col sm={6} >
-                <Card.Img src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg"/>
+                <Card.Img src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" style={{cursor:"pointer"}}/>
                 </Col>
                 
               </Row>

@@ -1,11 +1,6 @@
 // main
 import "./style.css";
-import {
-    Row,
-    Col,
-    Card,
-    Button,
-} from "react-bootstrap";
+import { Row, Col, Card, Button } from "react-bootstrap";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
 import API from "../../utils/API"
 import { useEffect, useState } from "react";
@@ -80,7 +75,7 @@ function MovieDetails(props) {
                     </Row>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="Info" style={{ border: "none", borderRadius: "10px", backgroundColor: "transparent", marginTop: "95px" }}>
                                 <Card.Header>
                                     Info
                                 </Card.Header>
@@ -106,11 +101,14 @@ function MovieDetails(props) {
                     sm={8}>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="platform-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
                                 <Card.Header>
                                     Availabe on...
                                 </Card.Header>
-                                <Card.Body>
+                                <Card.Body bsStyle="defaault"
+                                    style={
+                                        { paddingBottom: "20px", backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }
+                                    }>
                                     <Button>
                                         Youtube
                                     </Button>
@@ -120,11 +118,11 @@ function MovieDetails(props) {
                     </Row>
                     <Row>
                         <Col>
-                            <Card>
+                            <Card className="user-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
                                 <Card.Header>
                                     See what others have said
                                 </Card.Header>
-                                <Card.Body className="user-reviews">
+                                <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
                                     User1234: This movie is great!!
 
                                 </Card.Body>
@@ -132,10 +130,9 @@ function MovieDetails(props) {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col className="recommend-card">
                             <ProfileRecommend />
                         </Col>
-
                     </Row>
                 </Col>
             </Row>
