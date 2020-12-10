@@ -16,36 +16,11 @@ const users = new Schema({
     type: String,
     required: true,
   },
-
-  watched: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-      },
-    ]
+  
+  profileImage: {
+    type:String,
   },
 
-  toWatch: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-      },
-    ]
-  },
-
-  reviews: {
-    type: Array,
-    movies: [
-      {
-        id: String,
-        reviewTitle: String,
-        review: String,
-        recommendationId: String,
-      }
-    ]
-  }
 });
 
 const User = mongoose.model('Users', users);
