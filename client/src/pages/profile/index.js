@@ -26,7 +26,6 @@ function Profile() {
         <div className="container">
             <Row>
                 <Col className="left-top" sm={3}>
-                    <Image src="https://image.shutterstock.com/image-vector/user-avatar-icon-sign-profile-260nw-1145752283.jpg" roundedCircle />
                     <Image src="https://avatars.dicebear.com/api/identicon/:jojoj.svg " roundedCircle/>
                 </Col>
 
