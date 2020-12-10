@@ -21,12 +21,14 @@
   "dependencies": {
     "@dicebear/avatars": "^4.5.1",
     "@dicebear/avatars-identicon-sprites": "^4.5.1",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "mongoose": "^5.3.16",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "react-native-shadow-cards": "^1.0.2"
   }
 }

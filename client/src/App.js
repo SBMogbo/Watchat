@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css"
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from "./pages/signup/signUp"
 import Login from "./pages/login/login"
@@ -11,11 +12,12 @@ import Watchlist from "./pages/watchlist/index"
 // import logo from './logo.svg';
 import Navbar from "./components/Navbar/Navbar"
 import { HashRouter as Router, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <div class="App">
       <Route exact path="/" component={Login} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/login" component={Login} />
@@ -25,6 +27,8 @@ function App() {
       <Route exact path="/reviews" component={Reviews} />
       <Route exact path="/watched" component={Watched} />
       <Route exact path="/watchlist" component={Watchlist} />
+      </div>
+      <Footer />
     </Router>
 
   );
