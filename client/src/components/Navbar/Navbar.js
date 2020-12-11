@@ -12,8 +12,6 @@ import MovieFilterSharpIcon from '@material-ui/icons/MovieFilterSharp';
 import "./style.css";
 import {useDispatch} from "react-redux";
 import {setSearch} from "../../utils/AppSlice";
-
-
 function Navbar(props) {
   const [query, setQuery] = useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,21 +27,16 @@ function Navbar(props) {
       dispatch(setSearch(search));
     setQuery('')
   };
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
   return (
       <div className={'container-fluid header'}>
         <div className={'row p-3'}>
-
-
           {/*Header Left*/}
-
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
                <MovieFilterSharpIcon  style={{marginTop:"14px", color:"#f4ca16"}}fontSize="large"/>
                <h3 style={{marginTop:"15px", marginLeft:"10px", color:"white"}}>WatchAt</h3>
@@ -67,14 +60,11 @@ function Navbar(props) {
           </div>
         </div>
           {/* Start of Header Right*/}
-
-          <div style={{justifyContent:"space-between"}}className="col-12 col-md-3 d-flex justify-content-center p-1">
-
+          <div className="col-12 col-md-3 d-flex justify-content-center p-1">
           <SearchIcon style={{color:"white"}} fontSize="large" />
           <form onSubmit={movieSearchFunc}>
             <input className={'header_input'} placeholder="Search Movies" value={query} type="text" onChange={(e) => setQuery(e.target.value)} />
           </form>
-
           {/* This is for the Drop Down Far Right. */}
             <Button className="expand-button" aria-controls="simple-menu" aria-haspopup="true"
                     onClick={handleClick}>
@@ -86,20 +76,15 @@ function Navbar(props) {
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
-                
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to="reviews" className="nav-link">Reviews</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="reviewed" className="nav-link">Reviewed</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="/movieDetails" className="nav-link">Details</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to ="/login" className="nav-link">Logout</Link></MenuItem>
             </Menu>
         </div>
       </div>
-
     </div>
   )
-
 }
-
 export default Navbar
-

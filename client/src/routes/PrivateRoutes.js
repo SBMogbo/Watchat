@@ -9,7 +9,9 @@ import Reviews from "../pages/reviews/index"
 import Watched from "../pages/watched/index"
 import Watchlist from "../pages/watchlist/index"
 import Navbar from "../components/Navbar/Navbar"
+import Reviewed from "../pages/Reviewed/index";
 import Footer from "../components/Footer/index"
+
 
 const PrivateRoutes = () => {
 
@@ -35,6 +37,7 @@ const PrivateRoutes = () => {
             </Route>
             <Route exact path="/profile" ><Profile/></Route>
             <Route exact path="/reviews" ><Reviews/></Route>
+            <Route exact path="/reviewed" ><Reviewed/></Route>
             <Route exact path="/watched" ><Watched/></Route>
             <Route exact path="/watchlist" ><Watchlist/></Route>
             <Redirect to="/" />

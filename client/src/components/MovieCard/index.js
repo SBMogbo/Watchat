@@ -17,9 +17,9 @@ function MovieCard(props) {
   }
 
   return (
-    <Card id={props.id} onClick={onClick} style={{ backgroundColor: "transparent", border: "none" }}>
+    <Card id={props.id} onClick={onClick} style={{ backgroundColor: "transparent", border: "none", cursor:"pointer"}}>
       <Card.Img variant="top" src={props.poster} />
-      <Card.Text style={{ color: "white", paddingTop: "13px", alignItems: 'center' }}>
+      <Card.Text style={{ color: "white", paddingTop: "13px", justifyContent:"center" }}>
         <span>{props.title}</span>
       </Card.Text>
     </Card>

@@ -73,19 +73,20 @@ function Home(props) {
                     </Col>
                 </Row>
                 <Row className="buttons-row">
-                    <Col>
+                    <Col style={{marginBottom:"25px"}}>
                         <CategoryButtons />
                     </Col>
                 </Row>
                 <Row>
                     {results.map(result => {
                         return (
-                            <Col md="3" key={result.id}>
+                            <Col style={{marginBottom:"25px"}} md="3" key={result.id}>
                                 <MovieCard
                                     onMovieClick={props.onMovieClick}
                                     id={result.id}
                                     title={result.title}
                                     poster={result.poster}
+                                    
                                 />
                             </Col>
                         )
