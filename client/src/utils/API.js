@@ -48,8 +48,8 @@ const API = {
   getToWatchList: function () {
     return axios.get("/api/toWatch");
   },
-  saveToReviewsList: function (userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
-    return axios.post("/api/reviews", { userId, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
+  saveToReviewsList: function (user, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
+    return axios.post("/api/reviews", { user, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
   },
   getRewiewsList: function () {
     return axios.get("/api/reviews");

@@ -11,9 +11,9 @@ import { useSelector } from "react-redux";
 function MovieDetails(props) {
     const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
-    const userId = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
     function saveToWatchedList() {
-        API.saveToWatchedList(userId, movieId, results.poster, results.title)
+        API.saveToWatchedList(user.id, movieId, results.poster, results.title)
             .then(res => {
                 console.log('Added to watched list successful')
                 // props.history.push("/login")
@@ -21,7 +21,7 @@ function MovieDetails(props) {
             .catch(err => console.log(err));
     }
     function saveToToWatchList() {
-        API.saveToToWatchList(userId, movieId, results.poster, results.title)
+        API.saveToToWatchList(user.id, movieId, results.poster, results.title)
             .then(res => {
                 console.log('Added to toWatch list successful')
                 // props.history.push("/login")

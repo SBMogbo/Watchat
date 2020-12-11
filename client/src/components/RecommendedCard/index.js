@@ -45,12 +45,12 @@ function RecommendedCard(props) {
         // console.log("response", response)
         // console.log("movies", results)
         setResults(result)
+        dispatch(setRecommendedId(result.id));
       })
       .catch((err) => {
         console.log('ERROR ' + err);
       });
-      debugger;
-    dispatch(setRecommendedId(results.id));
+    
   };
   // console.log(results)
   return (results.length === 0) ? (

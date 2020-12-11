@@ -5,7 +5,10 @@ export const appSlice = createSlice({
   initialState: {
     search: null,
     movieId: 'test',
-    user: null,
+    user: {
+      id: null,
+      username:null,
+    },
     recommendedId: null,
     reviewTitle: null,
     review: null,

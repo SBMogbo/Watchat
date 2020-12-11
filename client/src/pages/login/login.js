@@ -6,6 +6,8 @@ import { HashRouter as Router } from "react-router-dom";
 import API from "../../utils/API"
 import { useStoreContext } from '../../utils/GlobalState';
 import { LOG_IN } from '../../utils/actions';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../utils/AppSlice';
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -26,6 +28,7 @@ const formValid = ({ formErrors, ...rest }) => {
 
 function Login(props) {
   const dispatch = useStoreContext()[1];
+  const reduxDispatch = useDispatch();
   const [state, setState] = useState({
     username: null,
     password: null,
@@ -56,6 +59,10 @@ function Login(props) {
       try {
         const response = await API.logIn(state.username, state.password);
         localStorage.setItem("authorization-token", response.data.token);
+        reduxDispatch(setUser({
+          id: response.data.token,
+          username: response.data.username,
+        }))
         dispatch({
           type: LOG_IN,
           payload: response.data

@@ -15,9 +15,10 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
+    console.log(req.body)
     db
       .create({
-        userId: req.body.userId,
+        user: req.body.user,
         movieId: req.body.movieId,
         poster: req.body.poster,
         movieTitle: req.body.movieTitle,
