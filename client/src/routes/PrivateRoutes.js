@@ -10,6 +10,8 @@ import Watched from "../pages/watched/index"
 import Watchlist from "../pages/watchlist/index"
 import Navbar from "../components/Navbar/Navbar"
 import Reviewed from "../pages/Reviewed/index";
+import Footer from "../components/Footer/index"
+
 
 const PrivateRoutes = () => {
 
@@ -40,6 +42,7 @@ const PrivateRoutes = () => {
             <Route exact path="/watchlist" ><Watchlist/></Route>
             <Redirect to="/" />
         </Switch>
+        <Footer/>
     </Router>
 }
 export default PrivateRoutes;
