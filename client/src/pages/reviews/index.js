@@ -11,28 +11,8 @@ import { useSelector } from "react-redux";
 
 
 function Reviews(props) {
-    const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
-    const recommendedId = useSelector(state => state.recommendedId);
-    const reviewTitle = useSelector(state => state.reviewTitle);
-    const review = useSelector(state => state.review);
-    const userId = localStorage.getItem("authorization-token")
-    function saveReview(props) {
-        API.saveToReviewsList(
-            userId,
-            movieId,
-            results.poster,
-            results.title,
-            reviewTitle,
-            review,
-            recommendedId
-        )
-            .then(res => {
-                console.log('Added to Reviewed list successful')
-                // props.history.push("/viewReviewPage")
-            })
-            .catch(err => console.log(err));
-    }
+    const [results, setResults] = useState('')
 
     useEffect(() => {
         API.omdbSearchById(movieId)
@@ -85,7 +65,7 @@ function Reviews(props) {
 
                     </Col>
                     <Col className="review-area" sm={9}>
-                        <ReviewCard saveReview={saveReview} />
+                        <ReviewCard />
 
                     </Col>
                 </Row>

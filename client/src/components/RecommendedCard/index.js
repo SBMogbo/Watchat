@@ -49,6 +49,7 @@ function RecommendedCard(props) {
       .catch((err) => {
         console.log('ERROR ' + err);
       });
+      debugger;
     dispatch(setRecommendedId(results.id));
   };
   // console.log(results)

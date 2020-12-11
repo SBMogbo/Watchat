@@ -5,33 +5,58 @@ import { useDispatch } from "react-redux";
 import { setReviewTitle, setReview } from "../../utils/AppSlice";
 import { IconButton } from "@material-ui/core"
 import { useSelector } from "react-redux";
+import API from "../../utils/API";
 
 function ReviewCard(props) {
 
-    const tempReviewTitle = useSelector(state => state.reviewTitle);
-    const tempReview = useSelector(state => state.review);
-    // console.log(tempReviewTitle)
-    // console.log(tempReview)
-    // const [reviewTitle, setReviewTitle] = useState('')
     const [title, setTitle] = useState('');
     // const [review, setReview] = useState('')
     const [reviewInput, setReviewInput] = useState('');
     const dispatch = useDispatch();
+
+    const [results, setResults] = useState('')
+    // const movieId = useSelector(state => state.movieId)
+    // const recommendedId = useSelector(state => state.recommendedId);
+    // const reviewTitle = useSelector(state => state.reviewTitle);
+    // const review = useSelector(state => state.review);
+    // const userId = localStorage.getItem("authorization-token")
+    function saveReview(dispatch, getState) {
+        const {
+            user,
+            movieId,
+            reviewTitle,
+            review,
+            recommendedId,
+            // search,
+        } = getState();
+        API.saveToReviewsList(
+            user,
+            movieId,
+            results.poster,
+            results.title,
+            reviewTitle,
+            review,
+            recommendedId
+        )
+            .then(res => {
+                console.log('Added to Reviewed list successful')
+                // props.history.push("/viewReviewPage")
+            })
+            .catch(err => console.log(err));
+    }
+
     const reviewGlobalStore = (event) => {
         event.preventDefault();
         if (!title?.trim()) return;
         if (!reviewInput?.trim()) return;
         const reviewTitle = title
         dispatch(setReviewTitle(reviewTitle));
-        console.log(reviewTitle)
-        console.log(tempReviewTitle)
         setTitle('')
 
         const review = reviewInput
         dispatch(setReview(review));
+        dispatch(saveReview);
         setReviewInput('')
-
-        props.saveReview()
     }
 
     return (

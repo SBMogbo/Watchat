@@ -34,7 +34,7 @@ function Reviewed() {
                         </Row>
                         <Row className="recommend-row">
                             <Col>
-                                <RecommendedCard />
+                                <MovieCard />
                             </Col>
                         </Row>
 

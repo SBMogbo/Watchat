@@ -16,7 +16,7 @@ function Watched(props) {
     const history = useHistory();
     const dispatch = useDispatch();
     function onClick() { // console.log()
-        dispatch(setMovieId(results[1].id))
+        dispatch(setMovieId(results[0].id))
         history.push("/reviews")
     }
     useEffect(() => {
