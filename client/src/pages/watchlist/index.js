@@ -5,13 +5,15 @@ import CategoryButtons from "../../components/CategoryButtons/index";
 import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard";
 import API from "../../utils/API";
+import { useSelector } from "react-redux";
 
 
 
 function Watchlist(props) {
+    const userId = useSelector(state => state.user.id)
     const [results, setResults] = useState('')
     useEffect(() => {
-        API.getToWatchList()
+        API.getToWatchListByUser(userId)
             .then((res) => {
                 const response = res.data;
                 let results = response;

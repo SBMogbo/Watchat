@@ -7,7 +7,7 @@ router.route("/")
   .post(toWatchController.create);
 
 router.route("/:id")
-  .get(toWatchController.findById)
+  .get(toWatchController.findByUserId)
  
 
 module.exports = router;
