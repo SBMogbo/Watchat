@@ -13,7 +13,7 @@ function ReviewedCard() {
                 <Card className="text-left" style={{ backgroundColor: "#564d4d", border: "none" }}>
                     <Card.Body>
                         <Card.Title style={{ padding: "20px 10px", color: "white", }}>Your Review</Card.Title>
-                        <Card.Text size="sm" className="mb-3" style={{ backgroundColor: "#dbd8e3", color: "black" , boxShadow: "10px 10px 10px rgba(0,0,0,0.75)", paddingBottom:"260px", borderRadius:"10px" }}>
+                        <Card.Text size="sm" className="mb-3" style={{ backgroundColor: "#dbd8e3", color: "black" , boxShadow: "20px 20px 10px rgba(0,0,0,0.75)", paddingBottom:"260px", borderRadius:"10px" }}>
                             <p style={{margin:"0px 10px", paddingTop:"10px"}}>Review Posted!!</p>
                         </Card.Text>
                         

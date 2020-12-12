@@ -26,15 +26,21 @@ function Reviewed() {
                 </Row>
                 <Row>
                     <Col className="sidebar" sm={3}>
+                        <Row>
+                            <h5>Movie Reviewed</h5>
+                        </Row>
                         <Row className="movieCard-row">
                             <Col>
                                 <MovieCard
                                 />
                             </Col>
                         </Row>
+                        <Row>
+                            <h5>Recommended</h5>
+                        </Row>
                         <Row className="recommend-row">
                             <Col>
-                                <RecommendedCard />
+                                <MovieCard />
                             </Col>
                         </Row>
 
