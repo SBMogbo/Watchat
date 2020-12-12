@@ -3,6 +3,22 @@ import "./style.css";
 import {Row, Col, Card, Image } from "react-bootstrap";
 import ProfileMovieCard from "../../components/ProfileMovieCard";
 import ProfileRecommend from "../../components/ProfileRecommendsCard";
+import Navbar from "../../components/Navbar/Navbar";
+import Avatars from '@dicebear/avatars';
+import sprites from '@dicebear/avatars-identicon-sprites';
+
+
+
+let options = {
+    colors:["amber","blue","red","green","pink","blueGrey"]
+};
+let avatars = new Avatars(sprites, options);
+let svg = avatars.create('custom-seed');
+var randColor = options.colors[Math.floor(Math.random() * options.colors.length)];
+
+console.log(avatars);
+
+
 
 function Profile() {
     return (
@@ -10,7 +26,7 @@ function Profile() {
         <div className="container">
             <Row>
                 <Col className="left-top" sm={3}>
-                    <Image src="https://image.shutterstock.com/image-vector/user-avatar-icon-sign-profile-260nw-1145752283.jpg" roundedCircle />
+                    <Image src="https://avatars.dicebear.com/api/identicon/:jojoj.svg " roundedCircle/>
                 </Col>
 
                 <Col className="right-top"
