@@ -4,7 +4,7 @@ import {Card, Col, Row} from "react-bootstrap"
 
 
 
-function ProfileRecommend() {
+function ProfileRecommends(props) {
     return(
         
         <Card style={{backgroundColor:"transparent", border:"none", borderRadius:"10px", padding: 10, margin: 10}}>
@@ -14,7 +14,7 @@ function ProfileRecommend() {
             <Card.Body bsStyle="default" style={{paddingBottom:"120px", backgroundColor:"#dbd8e3", borderRadius:"10px", boxShadow:"20px 20px 10px rgba(0,0,0,0.75)"}}>
                 <Row>
                     <Col sm={2}>
-                    <Card.Img style={{cursor:"pointer"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                    <Card.Img style={{cursor:"pointer"}}variant="bottom" src={props.poster} />
                     </Col>
                 </Row>
             </Card.Body>
@@ -23,4 +23,4 @@ function ProfileRecommend() {
     )
 }
 
-export default ProfileRecommend;
+export default ProfileRecommends;

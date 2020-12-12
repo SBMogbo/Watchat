@@ -16,7 +16,7 @@ module.exports = {
   },
   findByUserId: function (req, res) {
     db
-      .find({'userId': req.params.id})
+      .find({'user.id': req.params.id})
       .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
@@ -27,7 +27,7 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
-    console.log(req.body)
+    // console.log(req.body)
     db
       .create({
         user: req.body.user,

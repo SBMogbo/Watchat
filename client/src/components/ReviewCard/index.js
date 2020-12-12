@@ -31,7 +31,7 @@ function ReviewCard(props) {
             recommendedId,
             // search,
         } = getState();
-        debugger;
+  
         API.saveToReviewsList(
             user,
             movieId,
@@ -43,7 +43,7 @@ function ReviewCard(props) {
         )
             .then(res => {
                 console.log('Added to Reviewed list successful')
-                // props.history.push("/viewReviewPage")
+                // props.history.push("/reviewed")
             })
             .catch(err => console.log(err));
     }

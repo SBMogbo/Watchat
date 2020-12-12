@@ -57,11 +57,11 @@ const API = {
   saveToReviewsList: function (user, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
     return axios.post("/api/reviews", { user, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
   },
-  getRewiewsListByUser: function () {
-    return axios.get("/api/reviews/user/");
+  getRewiewsListByUser: function (id) {
+    return axios.get("/api/reviews/user/" + id);
   },
-  getRewiewsListByMovie: function () {
-    return axios.get("/api/reviews/movie/");
+  getRewiewsListByMovie: function (id) {
+    return axios.get("/api/reviews/movie/" + id);
   },
 };
 export default API

@@ -16,6 +16,7 @@ const formValid = ({ formErrors, ...rest }) => {
 
   // making sure the form isnt empty 
   Object.values(formErrors).forEach(val => {
+    // console.log(val)
     val.length > 0 && (valid = false);
   });
 
@@ -23,7 +24,7 @@ const formValid = ({ formErrors, ...rest }) => {
   Object.values(rest).forEach(val => {
     val === null && (valid = false);
   });
-
+// console.log(valid)
   return valid;
 };
 
@@ -51,15 +52,17 @@ function Login(props) {
   // }
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+ 
     if (formValid(state)) {
       // console.log(`
       // username:${state.username}
       // password:${state.password}
       // `);
+      
       try {
         const response = await API.logIn(state.username, state.password);
         localStorage.setItem("authorization-token", response.data.token);
+        // console.log(`response:${response}`)
         reduxDispatch(setUser({
           id: response.data.token,
           username: response.data.username,
@@ -76,6 +79,7 @@ function Login(props) {
       props.history.push("/home")
 
     } else {
+      // console.log(state)
       console.error("error form is invalid");
     }
   };
@@ -87,8 +91,8 @@ function Login(props) {
 
     switch (name) {
       case "username":
-        formErrors.username = value.length < 6
-          ? "username must be 6 characters or more"
+        formErrors.username = value.length < 3
+          ? "username must be 3 characters or more"
           : "";
         break;
       case "password":

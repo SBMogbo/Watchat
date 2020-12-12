@@ -28,7 +28,7 @@ function RecommendedCard(props) {
         // console.log("res", { res })
 
         const response = res.Search;
-        let results = response[1];
+        let results = response[0];
         // map through the array
 
         // store each movie information in a new object
@@ -42,12 +42,12 @@ function RecommendedCard(props) {
         }
 
 
-        console.log(results)
+        // console.log(results)
         // console.log("response", response)
         // console.log("movies", results)
         setResults(result)
         dispatch(setRecommendedId(result.id));
-        console.log(results.Poster)
+        // console.log(results.Poster)
         dispatch(setPoster(results.Poster));
         dispatch(setMovieTitle(results.Title));
       })
