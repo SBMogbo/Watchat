@@ -9,6 +9,7 @@ import { LOG_IN } from '../../utils/actions';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../utils/AppSlice';
 import swal from 'sweetalert';
+import { Route , withRouter} from 'react-router-dom';
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -87,8 +88,8 @@ function Login(props) {
 
     switch (name) {
       case "username":
-        formErrors.username = value.length < 6
-          ? "username must be 6 characters or more"
+        formErrors.username = value.length < 3
+          ? "username must be 3 characters or more"
           : "";
         break;
       case "password":
@@ -101,9 +102,10 @@ function Login(props) {
     }
     setState({ ...state, formErrors, [name]: value });
 
+    
   }
-
-
+  
+  const { formErrors } = state;
 
   return (
     <Router className="Login">
@@ -114,12 +116,18 @@ function Login(props) {
           <form onSubmit={handleSubmit} noValidate>
             <div className="username">
               <label htmlFor="username">Username</label>
-              <input type="text" className="" placeholder=" Enter username" name="username" noValidate
+              <input type="text" className= {formErrors.username.length > 0 ? "error" : null} placeholder=" Enter username" name="username" noValidate
                 onChange={handleChange} />
+                 {formErrors.username.length > 0 && (
+                <span className="errorMessage">{formErrors.username}</span>
+              )}
             </div>
             <div className="password">
               <label htmlFor="password">Password</label>
-              <input type="password" className="" placeholder=" Enter Password" name="password" onChange={handleChange} />
+              <input type="password" className={formErrors.password.length > 0 ? "error" : null}  placeholder=" Enter Password" name="password" onChange={handleChange} />
+              {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
 
             </div>
             <div className="createAccount">
@@ -134,4 +142,4 @@ function Login(props) {
 }
 
 
-export default Login;
+export default withRouter (Login);

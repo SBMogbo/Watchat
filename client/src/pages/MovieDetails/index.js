@@ -6,6 +6,7 @@ import API from "../../utils/API"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {IconButton} from "@material-ui/core";
+import swal from 'sweetalert';
 
 
 
@@ -18,6 +19,7 @@ function MovieDetails(props) {
             .then(res => {
                 console.log('Added to watched list successful')
                 // props.history.push("/login")
+                swal("Movie added to watched list!");
             })
             .catch(err => console.log(err));
     }
@@ -26,6 +28,7 @@ function MovieDetails(props) {
             .then(res => {
                 console.log('Added to toWatch list successful')
                 // props.history.push("/login")
+                swal("Movie added to watch later!");
             })
             .catch(err => console.log(err));
     }

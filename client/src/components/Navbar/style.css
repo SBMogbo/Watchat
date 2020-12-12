@@ -28,10 +28,12 @@
 .header-option >.MuiSvgIcon-root{
 
     color: white;
+    
 }
 
 .header-option:hover > .MuiSvgIcon-root {
     color:#f4ca16;
+    
 }
 
 
@@ -59,7 +61,7 @@
 }
 
 .nav-link {
-    color: white;
+    color: #111;
 }
 
 .nav-link:hover {
