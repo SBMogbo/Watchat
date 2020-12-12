@@ -5,13 +5,25 @@ module.exports = {
   findAll: function (req, res) {
     db
       .find(req.query)
-      .then(dbToWatch => res.json(dbToWatch))
+      .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
   findById: function (req, res) {
     db
       .findById(req.params.id)
-      .then(dbToWatch => res.json(dbToWatch))
+      .then(dbReviews => res.json(dbReviews))
+      .catch(err => res.status(500).json(err));
+  },
+  findByUserId: function (req, res) {
+    db
+      .find({'userId': req.params.id})
+      .then(dbReviews => res.json(dbReviews))
+      .catch(err => res.status(500).json(err));
+  },
+  findByMovieId: function (req, res) {
+    db
+      .find({'movieId': req.params.id})
+      .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
@@ -26,7 +38,7 @@ module.exports = {
         review: req.body.review,
         recommendationId: req.body.recommendationId,
       })
-      .then(dbToWatch => res.json(dbToWatch))
+      .then(dbReviews => res.json(dbReviews))
       .catch(err => {
         console.log(err)
         res.status(500).json(err)
