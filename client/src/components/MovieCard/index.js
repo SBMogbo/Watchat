@@ -13,7 +13,7 @@ function MovieCard(props) {
   function onClick() {
     // props.onMovieClick(props.id)
     dispatch(setMovieId(props.id))
-    dispatch(setUser(userId))
+    // dispatch(setUser(userId))
     history.push("/movieDetails")
   }
 

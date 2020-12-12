@@ -19,7 +19,7 @@ module.exports = {
   create: function (req, res) {
     db
       .create({
-        userName: req.body.username,
+        username: req.body.username,
         email: req.body.email.toLowerCase(),
         md5Password: md5(req.body.password),
       })

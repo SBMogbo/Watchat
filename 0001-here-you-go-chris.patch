@@ -1,0 +1,149 @@
+From 8e709d684821c5e79fce03d28d096d441cb41998 Mon Sep 17 00:00:00 2001
+From: Josh Mullins <mullinsjoshuaj@gmail.com>
+Date: Wed, 9 Dec 2020 23:36:13 -0500
+Subject: [PATCH] here you go chris
+
+---
+ client/src/components/ReviewCard/index.js | 27 +++++++++++++-
+ client/src/pages/reviews/index.js         | 44 +++++++++++------------
+ client/src/pages/watched/index.js         |  4 +--
+ 3 files changed, 50 insertions(+), 25 deletions(-)
+
+diff --git a/client/src/components/ReviewCard/index.js b/client/src/components/ReviewCard/index.js
+index 76ac1258..2cf38002 100644
+--- a/client/src/components/ReviewCard/index.js
++++ b/client/src/components/ReviewCard/index.js
+@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
+ import { setReviewTitle, setReview } from "../../utils/AppSlice";
+ import { IconButton } from "@material-ui/core"
+ import { useSelector } from "react-redux";
++import API from "../../utils/API";
+ 
+ function ReviewCard(props) {
+ 
+@@ -17,6 +18,30 @@ function ReviewCard(props) {
+     // const [review, setReview] = useState('')
+     const [reviewInput, setReviewInput] = useState('');
+     const dispatch = useDispatch();
++
++    const [results, setResults] = useState('')
++    const movieId = useSelector(state => state.movieId)
++    const recommendedId = useSelector(state => state.recommendedId);
++    const reviewTitle = useSelector(state => state.reviewTitle);
++    const review = useSelector(state => state.review);
++    const userId = localStorage.getItem("authorization-token")
++    function saveReview(title, review) {
++        API.saveToReviewsList(
++            userId,
++            movieId,
++            results.poster,
++            results.title,
++            title,
++            review,
++            recommendedId
++        )
++            .then(res => {
++                console.log('Added to Reviewed list successful')
++                // props.history.push("/viewReviewPage")
++            })
++            .catch(err => console.log(err));
++    }
++
+     const reviewGlobalStore = (event) => {
+         event.preventDefault();
+         if (!title?.trim()) return;
+@@ -31,7 +56,7 @@ function ReviewCard(props) {
+         dispatch(setReview(review));
+         setReviewInput('')
+ 
+-        props.saveReview()
++        saveReview(reviewTitle, review);
+     }
+ 
+     return (
+diff --git a/client/src/pages/reviews/index.js b/client/src/pages/reviews/index.js
+index dd625bb1..ade5291e 100644
+--- a/client/src/pages/reviews/index.js
++++ b/client/src/pages/reviews/index.js
+@@ -11,28 +11,28 @@ import { useSelector } from "react-redux";
+ 
+ 
+ function Reviews(props) {
+-    const [results, setResults] = useState('')
+     const movieId = useSelector(state => state.movieId)
+-    const recommendedId = useSelector(state => state.recommendedId);
+-    const reviewTitle = useSelector(state => state.reviewTitle);
+-    const review = useSelector(state => state.review);
+-    const userId = localStorage.getItem("authorization-token")
+-    function saveReview(props) {
+-        API.saveToReviewsList(
+-            userId,
+-            movieId,
+-            results.poster,
+-            results.title,
+-            reviewTitle,
+-            review,
+-            recommendedId
+-        )
+-            .then(res => {
+-                console.log('Added to Reviewed list successful')
+-                // props.history.push("/viewReviewPage")
+-            })
+-            .catch(err => console.log(err));
+-    }
++    const [results, setResults] = useState('')
++    // const recommendedId = useSelector(state => state.recommendedId);
++    // const reviewTitle = useSelector(state => state.reviewTitle);
++    // const review = useSelector(state => state.review);
++    // const userId = localStorage.getItem("authorization-token")
++    // function saveReview(props) {
++    //     API.saveToReviewsList(
++    //         userId,
++    //         movieId,
++    //         results.poster,
++    //         results.title,
++    //         reviewTitle,
++    //         review,
++    //         recommendedId
++    //     )
++    //         .then(res => {
++    //             console.log('Added to Reviewed list successful')
++    //             // props.history.push("/viewReviewPage")
++    //         })
++    //         .catch(err => console.log(err));
++    // }
+ 
+     useEffect(() => {
+         API.omdbSearchById(movieId)
+@@ -85,7 +85,7 @@ function Reviews(props) {
+ 
+                     </Col>
+                     <Col className="review-area" sm={9}>
+-                        <ReviewCard saveReview={saveReview} />
++                        <ReviewCard />
+ 
+                     </Col>
+                 </Row>
+diff --git a/client/src/pages/watched/index.js b/client/src/pages/watched/index.js
+index 00aadb7d..5cc6ff24 100644
+--- a/client/src/pages/watched/index.js
++++ b/client/src/pages/watched/index.js
+@@ -16,7 +16,7 @@ function Watched(props) {
+     function onClick() {
+ 
+         // console.log()
+-        dispatch(setMovieId(results[1].id))
++        dispatch(setMovieId(results[0].id))
+         history.push("/reviews")
+     }
+     useEffect(() => {
+@@ -93,4 +93,4 @@ function Watched(props) {
+ }
+ 
+ 
+-export default Watched; 
+\ No newline at end of file
++export default Watched; 
+-- 
+2.29.2.windows.2
+

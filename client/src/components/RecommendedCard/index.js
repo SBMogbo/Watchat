@@ -2,7 +2,7 @@ import { Card, Button, Row } from "react-bootstrap";
 import API from "../../utils/API";
 import MovieCard from "../MovieCard";
 import { useDispatch } from "react-redux";
-import { setRecommendedId, setSearch } from "../../utils/AppSlice";
+import { setRecommendedId, setSearch, setPoster, setMovieTitle } from "../../utils/AppSlice";
 import { useState } from "react";
 import { IconButton } from "@material-ui/core"
 
@@ -42,15 +42,19 @@ function RecommendedCard(props) {
         }
 
 
-        // console.log(results)
+        console.log(results)
         // console.log("response", response)
         // console.log("movies", results)
         setResults(result)
+        dispatch(setRecommendedId(result.id));
+        console.log(results.Poster)
+        dispatch(setPoster(results.Poster));
+        dispatch(setMovieTitle(results.Title));
       })
       .catch((err) => {
         console.log('ERROR ' + err);
       });
-    dispatch(setRecommendedId(results.id));
+    
   };
   // console.log(results)
   return (results.length === 0) ? (

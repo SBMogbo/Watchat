@@ -14,6 +14,17 @@ module.exports = {
       .then(dbWatched => res.json(dbWatched))
       .catch(err => res.status(500).json(err));
   },
+  findByUserId: function (req, res) {
+    console.log(req.params)
+    console.log(JSON.stringify({'user.id': req.params.id}));
+    db
+      .find({'userId': req.params.id})
+      .then(dbWatched => {
+        console.log(dbWatched);
+        res.json(dbWatched);
+      })
+      .catch(err => res.status(500).json(err));
+  },
   create: function (req, res) {
     db
       .create({

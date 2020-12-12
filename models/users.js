@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const users = new Schema({
-  userName: {
+  username: {
     type: String,
     required: true,
   },
@@ -16,9 +16,9 @@ const users = new Schema({
     type: String,
     required: true,
   },
-  
+
   profileImage: {
-    type:String,
+    type: String,
   },
 
 });
