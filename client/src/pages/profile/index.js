@@ -10,8 +10,6 @@ import API from "../../utils/API";
 // import Avatars from '@dicebear/avatars';
 // import sprites from '@dicebear/avatars-identicon-sprites';
 
-
-
 let options = {
     colors: ["amber", "blue", "red", "green", "pink", "blueGrey"]
 };
@@ -21,44 +19,45 @@ let options = {
 
 // console.log(avatars);
 
-
-
 function Profile() {
     const reduxDispatch = useDispatch();
     const user = useSelector(state => state.user)
-    const [watchedResults, setWatchedResults] = useState('')
-    const [toWatchResults, setToWatchResults] = useState('')
-    const [recommendedResults, setRecommendedResults] = useState('')
-    const [reviewedResults, setReviewedResults] = useState('')
-    useEffect(() => {
+    const [watchedResults, setWatchedResults] = useState([])
+    const [toWatchResults, setToWatchResults] = useState([])
+    const [recommendedResults, setRecommendedResults] = useState([])
+    const [reviewedResults, setReviewedResults] = useState([])
 
-        API.getRewiewsListByUser(user.id)
-            .then((res) => {
-                const response = res;
-                let recommendedResults = response.data;
+    async function getProfileReviews() {
+        const response = await API.getRewiewsListByUser(user.id);
+        const recommendedResults = response.data;
+        const mappedResults = recommendedResults.map((result) => {
+            result = {
+                userId: result.user.id,
+                username: result.user.username,
+                movieId: result.movieId,
+                movieTitle: result.movieTitle,
+                poster: result.poster,
+                recommendationId: result.recommendationId,
+                review: result.review,
+                reviewTitle: result.reviewTitle,
+            };
+            return result;
+        });
 
-                recommendedResults = recommendedResults.map((result) => {
-                    result = {
-                        userId: result.user.id,
-                        username: result.user.username,
-                        movieId: result.movieId,
-                        movieTitle: result.movieTitle,
-                        poster: result.poster,
-                        recommendationId: result.recommendationId,
-                        review: result.review,
-                        reviewTitle: result.reviewTitle,
-                    };
-                    return result;
-                });
-                reduxDispatch(setRecommendedResults(recommendedResults))
-                // console.log(recommendedResults)
-            })
-            .catch((err) => {
-                console.log('ERROR ' + err);
-            });
-        API.omdbSearchById(recommendedResults.movieId)
-            .then((res) => {
-                const response = res;
+        setRecommendedResults(mappedResults);
+        // replace with loop
+        return getMovieInfo(mappedResults[0].movieId);
+
+            // .catch((err) => {
+            //     console.log('ERROR ' + err);
+            // });
+        // console.log(recommendedResults)
+    }
+
+    async function getMovieInfo(movieId) {
+        return API.omdbSearchById(movieId)
+            .then((response) => {
+                console.log(response);
                 let results = response;
                 const reviewedResults = {
                     key: results.imdbID,
@@ -66,13 +65,16 @@ function Profile() {
                     poster: results.Poster,
                     title: results.Title,
                 };
-                reduxDispatch(setReviewedResults(reviewedResults))
-                console.log(reviewedResults)
+                setReviewedResults(reviewedResults);
+                // console.log(reviewedResults)
             })
             .catch((err) => {
                 console.log('ERROR ' + err);
             });
-        API.getWatchedListByUser(user.id).then((res) => {
+    }
+
+    async function getProfileWatchedList() {
+        return API.getWatchedListByUser(user.id).then((res) => {
             const response = res.data;
             let watchedResults = response;
             // console.log(results)
@@ -90,13 +92,15 @@ function Profile() {
             });
             // console.log("response", response)
             // console.log("movies", results)
-            reduxDispatch(setWatchedResults(watchedResults))
+            setWatchedResults(watchedResults);
             // console.log(watchedResults)
         }).catch((err) => {
             console.log('ERROR ' + err);
         });
+    }
 
-        API.getToWatchListByUser(user.id)
+    async function getProfileToWatchList() {
+        return API.getToWatchListByUser(user.id)
             .then((res) => {
                 const response = res.data;
                 let toWatchResults = response;
@@ -116,13 +120,21 @@ function Profile() {
                 });
                 // console.log("response", response)
                 // console.log("movies", results)
-                reduxDispatch(setToWatchResults(toWatchResults))
+                setToWatchResults(toWatchResults);
                 // console.log(toWatchResults)
             }).catch((err) => {
             })
             .catch((err) => {
                 console.log('ERROR ' + err);
             });
+    }
+
+
+
+    useEffect(() => {
+        getProfileReviews();
+        getProfileWatchedList();
+        getProfileToWatchList();
     }, [])
 
     return (
@@ -148,7 +160,7 @@ function Profile() {
                         <Row>
                             <Col className="profile-recommend">
                                 <ProfileRecommends
-                                // poster={recommendedResults[0].poster}
+                                    poster={recommendedResults[0]?.poster}
                                 />
                             </Col>
                         </Row>
@@ -159,19 +171,19 @@ function Profile() {
                     <Col sm={4}>
                         <ProfileMovieCard
                             cardTitle="Watched List"
-                            // poster={watchedResults[0].poster}
+                            poster={watchedResults[0]?.poster}
                         />
                     </Col>
                     <Col sm={4}>
                         <ProfileMovieCard
                             cardTitle="To Watch List"
-                            // poster={toWatchResults[0].poster}
+                            poster={toWatchResults[0]?.poster}
                         />
                     </Col>
                     <Col sm={4}>
                         <ProfileMovieCard
                             cardTitle="Reviewed List"
-                            // poster={reviewedResults.poster}
+                            poster={reviewedResults?.poster}
                         />
                     </Col>
                 </Row>
