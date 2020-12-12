@@ -67,7 +67,7 @@ function Watched(props) {
             </Row>
             <Row className="buttons-row">
                 <Col style={
-                    {marginBottom: "25px"}
+                    {marginBottom: "30px"}
                 }>
                     <CategoryButtons/>
                 </Col>
@@ -76,7 +76,7 @@ function Watched(props) {
                 results.map(result => {
                     return (
                         <Col style={
-                                {marginBottom: "25px"}
+                                {marginBottom: "30px"}
                             }
                             md="3"
                             key={
@@ -97,7 +97,7 @@ function Watched(props) {
                             <Row  style={
                                         {justifyContent: "center"}}>
                                     <IconButton>
-                                        <Button variant="outline-light"
+                                        <Button variant="outline-info"
                                             id={
                                                 result.id
                                             }

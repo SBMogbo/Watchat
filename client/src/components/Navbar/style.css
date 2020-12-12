@@ -1,18 +1,18 @@
 
 .header {
-    display: flex;
-    justify-content: space-evenly;
-    background-color:#564d4d;
+
+    /* background-color:#564d4d; */
     z-index: 100;
     top: 0;
-    position: sticky;
-
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+    background-color: #cfcfcf ;
   
 }
 
 .header-left {
     display: flex;
     justify-content: space-evenly;
+    
 }
 
 .header_input {
@@ -51,7 +51,7 @@
 }
 
 .header-option:hover {
-    background-color: #564d4d;
+    background-color: #cfcfcf;
     border-radius: 10px;
     align-items: center;
     padding: 0 30px;
