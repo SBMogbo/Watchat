@@ -12,15 +12,15 @@ const reviews = new Schema({
     }
   },
 
-  movieId: {
+  reviewedMovieId: {
     type: String,
   },
 
-  poster: {
+  reviewedMovieTitle: {
     type: String,
   },
 
-  movieTitle: {
+  reviewedMoviePoster: {
     type: String,
   },
 
@@ -32,9 +32,18 @@ const reviews = new Schema({
     type: String,
   },
 
-  recommendationId: {
+  recommendedMovieId: {
     type: String,
   },
+
+  recommendedMovieTitle: {
+    type: String,
+  },
+
+  recommendedMoviePoster: {
+    type: String,
+  },
+
 })
 const Review = mongoose.model('Reviews', reviews);
 

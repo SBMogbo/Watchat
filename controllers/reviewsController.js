@@ -31,12 +31,14 @@ module.exports = {
     db
       .create({
         user: req.body.user,
-        movieId: req.body.movieId,
-        poster: req.body.poster,
-        movieTitle: req.body.movieTitle,
+        reviewedMovieId: req.body.reviewedMovieId,
+        reviewedMovieTitle: req.body.reviewedMovieTitle,
+        reviewedMoviePoster: req.body.reviewedMoviePoster,
         reviewTitle: req.body.reviewTitle,
         review: req.body.review,
-        recommendationId: req.body.recommendationId,
+        recommendedMovieId: req.body.recommendedMovieId,
+        recommendedMovieTitle: req.body.recommendedMovieTitle,
+        recommendedMoviePoster: req.body.recommendedMoviePoster,
       })
       .then(dbReviews => res.json(dbReviews))
       .catch(err => {

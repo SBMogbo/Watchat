@@ -15,31 +15,42 @@ function ReviewCard(props) {
     const dispatch = useDispatch();
 
     const [results, setResults] = useState('')
-    // const movieId = useSelector(state => state.movieId)
-    // const recommendedId = useSelector(state => state.recommendedId);
-    // const reviewTitle = useSelector(state => state.reviewTitle);
-    // const review = useSelector(state => state.review);
+    const reviewedMovieId = useSelector(state => state.movieId)
+    const reviewedMoviePoster = useSelector(state => state.poster)
+    const recommendedMovieId = useSelector(state => state.recommendedId);
+    const recommendedMovieTitle = useSelector(state => state.recommendedTitle);
+    const recommendedMoviePoster = useSelector(state => state.recommendedPoster);
+    const reviewedMovieTitle = useSelector(state => state.movieTitle);
+    const review = useSelector(state => state.review);
+    const user = useSelector(state => state.user);
+    
+    
+
     // const userId = localStorage.getItem("authorization-token")
-    function saveReview(dispatch, getState) {
-        const {
-            user,
-            movieId,
-            poster,
-            movieTitle,
-            reviewTitle,
-            review,
-            recommendedId,
-            // search,
-        } = getState();
+    function saveReview(reviewTitle, review) {
+        // const {
+        //     user,
+        //     reviewedMovieId,
+        //     reviewedMovieTitle,
+        //     reviewedMoviePoster,
+        //     title,
+        //     review,
+        //     recommendedMovieId,
+        //     recommendedMovieTitle,
+        //     recommendedMoviePoster,
+        //     // search,
+        // }
   
         API.saveToReviewsList(
             user,
-            movieId,
-            poster,
-            movieTitle,
+            reviewedMovieId,
+            reviewedMovieTitle,
+            reviewedMoviePoster,
             reviewTitle,
             review,
-            recommendedId
+            recommendedMovieId,
+            recommendedMovieTitle,
+            recommendedMoviePoster,
         )
             .then(res => {
                 console.log('Added to Reviewed list successful')
@@ -58,7 +69,7 @@ function ReviewCard(props) {
 
         const review = reviewInput
         dispatch(setReview(review));
-        dispatch(saveReview);
+        saveReview(reviewTitle, review);
         setReviewInput('')
     }
 
