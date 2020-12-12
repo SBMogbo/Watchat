@@ -2,13 +2,13 @@ import "./style.css";
 import { Row ,Col } from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
-import ReviewedCard from "../../components/ReviewedPostCard/index";;
-
+import ReviewedCard from "../../components/ReviewedPostCard/index";
+import { useSelector } from "react-redux";
 
 
 
 function Reviewed() {
-
+    const username = useSelector(state => state.user.username)
         
     return (
         <>
@@ -20,7 +20,7 @@ function Reviewed() {
                 </Row>
                 <Row className="username-row">
                     <Col style={{ color: "white" }}>
-                        <h5>Username</h5>
+                        <h5>{username}</h5>
 
                     </Col>
                 </Row>

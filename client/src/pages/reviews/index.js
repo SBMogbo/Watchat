@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 
 function Reviews(props) {
     const movieId = useSelector(state => state.movieId)
+    const username = useSelector(state => state.user.username)
     const [results, setResults] = useState('')
 
     useEffect(() => {
@@ -41,7 +42,7 @@ function Reviews(props) {
                 </Row>
                 <Row className="username-row">
                     <Col style={{ color: "white" }}>
-                        <h5>Username</h5>
+                        <h5>{username}</h5>
 
                     </Col>
                 </Row>

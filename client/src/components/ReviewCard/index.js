@@ -24,16 +24,19 @@ function ReviewCard(props) {
         const {
             user,
             movieId,
+            poster,
+            movieTitle,
             reviewTitle,
             review,
             recommendedId,
             // search,
         } = getState();
+        debugger;
         API.saveToReviewsList(
             user,
             movieId,
-            results.poster,
-            results.title,
+            poster,
+            movieTitle,
             reviewTitle,
             review,
             recommendedId

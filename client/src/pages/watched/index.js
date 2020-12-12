@@ -6,21 +6,22 @@ import {useEffect, useState} from "react";
 import MovieCard from "../../components/MovieCard";
 import API from "../../utils/API";
 import {useHistory} from "react-router";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setMovieId} from "../../utils/AppSlice";
 import {IconButton} from "@material-ui/core"
 import {Button} from "react-bootstrap";
 
 function Watched(props) {
+    const userId = useSelector(state => state.user.id)
     const [results, setResults] = useState('')
     const history = useHistory();
     const dispatch = useDispatch();
-    function onClick() { // console.log()
-        dispatch(setMovieId(results[0].id))
+    function onClick(e) { // console.log()
+        dispatch(setMovieId(e.target.id))
         history.push("/reviews")
     }
     useEffect(() => {
-        API.getWatchedList().then((res) => {
+        API.getWatchedListByUser(userId).then((res) => {
             const response = res.data;
             let results = response;
             // console.log(results)
