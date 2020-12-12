@@ -5,6 +5,7 @@ import ProfileRecommend from "../../components/ProfileRecommendsCard";
 import API from "../../utils/API"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import {IconButton} from "@material-ui/core";
 
 
 
@@ -62,34 +63,40 @@ function MovieDetails(props) {
                     sm={4}>
                     <Row>
                         <Col>
-                            <Card>
-                                <Card.Img src={results.poster}>
+                            <Card style={{border:"none",justifyContent:"center"}}>
+                                <Card.Img  style={{boxShadow: "20px 20px 10px rgba(0,0,0,0.75)"}} src={results.poster}>
 
                                 </Card.Img>
-                                <Card.Footer>
-                                    <button onClick={saveToWatchedList}>Seen</button>
-                                    <button onClick={saveToToWatchList}>My List</button>
-                                </Card.Footer>
+                               
                             </Card>
+                            <Row style={{justifyContent:"center", marginTop:"20px"}}>
+                            <IconButton>
+                                    <Button variant="outline-danger" onClick={saveToWatchedList}>Seen</Button>
+                                    </IconButton>
+                                    <IconButton>
+                                    <Button variant="outline-success" onClick={saveToToWatchList}>My List</Button>
+                                    </IconButton>
+                                    
+                            </Row>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <Card className="Info" style={{ border: "none", borderRadius: "10px", backgroundColor: "transparent", marginTop: "95px" }}>
+                            <Card className="Info" style={{ color:"white", border: "none", borderRadius: "10px", backgroundColor: "#564d4d", marginTop: "35px"}}>
                                 <Card.Header>
-                                    Info
+                                    <h5>Info:</h5>
                                 </Card.Header>
                                 <Card.Body>
-                                    <Row>
+                                    <Row style={{marginBottom:"10px"}}>
                                         Name: {results.title}
                                     </Row>
-                                    <Row>
+                                    <Row style={{marginBottom:"10px"}}>
                                         IMDB Rating: {results.imdbRating}
-                                    </Row>
-                                    <Row>
+                                    </Row >
+                                    <Row style={{marginBottom:"10px"}}>
                                         Rated: {results.rated}
                                     </Row>
-                                    <Row>
+                                    <Row style={{marginBottom:"10px"}}>
                                         Genre: {results.genre}
                                     </Row>
                                 </Card.Body>
@@ -101,7 +108,7 @@ function MovieDetails(props) {
                     sm={8}>
                     <Row>
                         <Col>
-                            <Card className="platform-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
+                            <Card className="platform-card" style={{ color:"white", backgroundColor: "transparent", border: "none"}}>
                                 <Card.Header>
                                     Availabe on...
                                 </Card.Header>
@@ -119,7 +126,7 @@ function MovieDetails(props) {
                     <Row>
                         <Col>
                             <Card className="user-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
-                                <Card.Header>
+                                <Card.Header style={{ color:"white"}}>
                                     See what others have said
                                 </Card.Header>
                                 <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
