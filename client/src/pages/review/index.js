@@ -6,44 +6,29 @@ import ReviewedCard from "../../components/ReviewedCard/index";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import API from "../../utils/API";
+import { useLocation, useParams } from "react-router";
 
 
 
-function Reviewed() {
+function Review(props) {
     const username = useSelector(state => state.user.username)
     const user = useSelector(state => state.user)
     const movieId = useSelector(state => state.movieId)
     const [results, setResults] = useState('')
-    const [recommendedResults, setRecommendedResults] = useState('')
+    const [review, setReview] = useState({});
+
+    const routerParams = useParams();
+
     useEffect(() => {
-        API.omdbSearchById(movieId)
+
+        API.getReview(routerParams.id)
             .then((res) => {
-                const response = res;
-                let results = response;
-                const result = {
-                    key: results.imdbID,
-                    id: results.imdbID,
-                    poster: results.Poster,
-                    title: results.Title,
-                };
-                setResults(result)
+                setReview(res.data);
             })
             .catch((err) => {
                 console.log('ERROR ' + err);
             });
-        // console.log(user.id)
-        API.getRewiewsListByUser(user.id)
-            .then((res) => {
-                const response = res;
-                // console.log(response.data.length)
-                let recommendedResult = response.data[response.data.length - 1];
-                // console.log(recommendedResult)
-                setRecommendedResults(recommendedResult)
-            })
-            .catch((err) => {
-                console.log('ERROR ' + err);
-            });
-    }, [movieId])
+    }, [])
     return (
         <>
             <div className="container">
@@ -66,10 +51,9 @@ function Reviewed() {
                         <Row className="movieCard-row">
                             <Col>
                                 <MovieCard
-                                    id={results.id}
-                                    title={results.title}
-                                    poster={results.poster}
-                                />
+                                    id={review.reviewedMovieId}
+                                    title={review.reviewedMovieTitle}
+                                    poster={review.reviewedMoviePoster} />
                             </Col>
                         </Row>
                         <Row>
@@ -78,17 +62,17 @@ function Reviewed() {
                         <Row className="recommend-row">
                             <Col>
                                 <MovieCard
-                                    id={recommendedResults.movieId}
-                                    title={recommendedResults.movieTitle}
-                                    poster={recommendedResults.poster} />
+                                    id={review.recommendedMovieId}
+                                    title={review.recommendedMovieTitle}
+                                    poster={review.recommendedMoviePoster} />
                             </Col>
                         </Row>
 
                     </Col>
                     <Col className="review-area" sm={9}>
                         <ReviewedCard
-                            reviewTitle={recommendedResults.reviewTitle}
-                            review={recommendedResults.review}
+                            reviewTitle={review.reviewTitle}
+                            review={review.review}
                         />
 
                     </Col>
@@ -98,4 +82,4 @@ function Reviewed() {
     )
 }
 
-export default Reviewed;
+export default Review;

@@ -6,6 +6,7 @@ import { setReviewTitle, setReview } from "../../utils/AppSlice";
 import { IconButton } from "@material-ui/core"
 import { useSelector } from "react-redux";
 import API from "../../utils/API";
+import { useHistory } from "react-router";
 
 function ReviewCard(props) {
 
@@ -23,24 +24,10 @@ function ReviewCard(props) {
     const reviewedMovieTitle = useSelector(state => state.movieTitle);
     const review = useSelector(state => state.review);
     const user = useSelector(state => state.user);
-    
-    
 
-    // const userId = localStorage.getItem("authorization-token")
+    const history = useHistory();
+
     function saveReview(reviewTitle, review) {
-        // const {
-        //     user,
-        //     reviewedMovieId,
-        //     reviewedMovieTitle,
-        //     reviewedMoviePoster,
-        //     title,
-        //     review,
-        //     recommendedMovieId,
-        //     recommendedMovieTitle,
-        //     recommendedMoviePoster,
-        //     // search,
-        // }
-  
         API.saveToReviewsList(
             user,
             reviewedMovieId,
@@ -54,7 +41,8 @@ function ReviewCard(props) {
         )
             .then(res => {
                 console.log('Added to Reviewed list successful')
-                // props.history.push("/reviewed")
+                console.log(res);
+                history.push("/review/" + res.data._id);
             })
             .catch(err => console.log(err));
     }
@@ -80,15 +68,15 @@ function ReviewCard(props) {
                     <Card.Body>
                         <Card.Title style={{ padding: "20px 10px", color: "white", }}>Leave a Review</Card.Title>
                         <InputGroup size="sm" className="mb-3" >
-                         <div className="form-group">
+                            <div className="form-group">
 
-                                <input style={{marginBottom:"20px", backgroundColor:"#dbd8e3", borderRadius:"5px"}} value={title} type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Review Title"></input>
-                                <textarea style={{ backgroundColor: "#dbd8e3", color: "black", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)"}} value={reviewInput} type="text" onChange={(e) => setReviewInput(e.target.value)} placeholder="Write your review..." className="form-control" id="exampleFormControlTextarea1" rows="20" cols="90" />
+                                <input style={{ marginBottom: "20px", backgroundColor: "#dbd8e3", borderRadius: "5px" }} value={title} type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Review Title"></input>
+                                <textarea style={{ backgroundColor: "#dbd8e3", color: "black", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }} value={reviewInput} type="text" onChange={(e) => setReviewInput(e.target.value)} placeholder="Write your review..." className="form-control" id="exampleFormControlTextarea1" rows="20" cols="90" />
                             </div>
                         </InputGroup>
                     </Card.Body>
                     <Row>
-                    <IconButton>
+                        <IconButton>
                             <Button onClick={reviewGlobalStore} variant="outline-info" style={{ borderRadius: "10px" }} className="button-right">Submit</Button>
                         </IconButton>
                     </Row>

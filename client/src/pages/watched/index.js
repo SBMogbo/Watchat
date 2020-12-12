@@ -7,7 +7,7 @@ import MovieCard from "../../components/MovieCard";
 import API from "../../utils/API";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { setMovieId, setMovieTitle, setPoster } from "../../utils/AppSlice";
+import { setMovieId, setMovieTitle, setPoster, setRecommendedId, setRecommendedTitle, setRecommendedPoster } from "../../utils/AppSlice";
 import { IconButton } from "@material-ui/core"
 import { Button } from "react-bootstrap";
 
@@ -20,13 +20,15 @@ function Watched(props) {
         dispatch(setMovieId(e.target.id))
         dispatch(setMovieTitle(e.target.dataset['title']))
         dispatch(setPoster(e.target.dataset['poster']))
+        dispatch(setRecommendedId(null));
+        dispatch(setRecommendedTitle(null));
+        dispatch(setRecommendedPoster(null));
         history.push("/reviews")
     }
     useEffect(() => {
         API.getWatchedListByUser(userId).then((res) => {
             const response = res.data;
             let results = response;
-            // console.log(results)
             // map through the array
             results = results.map((result) => { // store each movie information in a new object
                 result = {
@@ -39,8 +41,6 @@ function Watched(props) {
                 };
                 return result;
             });
-            // console.log("response", response)
-            // console.log("movies", results)
             setResults(results)
         }).catch((err) => {
             console.log('ERROR ' + err);

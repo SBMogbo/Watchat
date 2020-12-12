@@ -78,7 +78,7 @@ function Navbar(props) {
                 onClose={handleClose}
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to="/reviewed" className="nav-link">Reviewed</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/review" className="nav-link">Reviewed</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="/movieDetails" className="nav-link">Details</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to ="/login" className="nav-link">Logout</Link></MenuItem>
             </Menu>

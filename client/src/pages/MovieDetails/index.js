@@ -56,7 +56,7 @@ function MovieDetails(props) {
             .catch((err) => {
                 console.log('ERROR ' + err);
             });
-        API.getRewiewsListByMovie(movieId)
+        API.getReviewsListByMovie(movieId)
         .then((res) => {
             const response = res;
             let recommendedResults = response.data;

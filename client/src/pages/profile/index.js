@@ -28,7 +28,7 @@ function Profile() {
     const [reviewedResults, setReviewedResults] = useState([])
 
     async function getProfileReviews() {
-        const response = await API.getRewiewsListByUser(user.id);
+        const response = await API.getReviewsListByUser(user.id);
         const recommendedResults = response.data;
         const mappedResults = recommendedResults.map((result) => {
             result = {

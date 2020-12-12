@@ -9,40 +9,40 @@ import Reviews from "../pages/reviews/index"
 import Watched from "../pages/watched/index"
 import Watchlist from "../pages/watchlist/index"
 import Navbar from "../components/Navbar/Navbar"
-import Reviewed from "../pages/Reviewed/index";
+import Review from "../pages/review/index";
 import Footer from "../components/Footer/index"
 
 
 const PrivateRoutes = () => {
 
-    
+
     const [movieId, setMovieId] = useState({});
 
     const onMovieClick = function (id) {
         setMovieId(id);
-        
-    } 
+
+    }
 
     return <Router>
-        <Navbar/>
+        <Navbar />
         <Switch>
-            <Route exact path="/" ><Login/></Route>
-            <Route exact path="/signup" ><SignUp/></Route>
-            <Route exact path="/login" ><Login/></Route>
+            <Route exact path="/" ><Login /></Route>
+            <Route exact path="/signup" ><SignUp /></Route>
+            <Route exact path="/login" ><Login /></Route>
             <Route exact path="/home" >
-                <Home onMovieClick={onMovieClick}/>
+                <Home onMovieClick={onMovieClick} />
             </Route>
             <Route exact path="/movieDetails" >
-                <MovieDetails movieId={movieId}/>
+                <MovieDetails movieId={movieId} />
             </Route>
-            <Route exact path="/profile" ><Profile/></Route>
-            <Route exact path="/reviews" ><Reviews/></Route>
-            <Route exact path="/reviewed" ><Reviewed/></Route>
-            <Route exact path="/watched" ><Watched/></Route>
-            <Route exact path="/watchlist" ><Watchlist/></Route>
+            <Route exact path="/profile" ><Profile /></Route>
+            <Route exact path="/reviews" ><Reviews /></Route>
+            <Route path="/review/:id" ><Review /></Route>
+            <Route exact path="/watched" ><Watched /></Route>
+            <Route exact path="/watchlist" ><Watchlist /></Route>
             <Redirect to="/" />
         </Switch>
-        <Footer/>
+        <Footer />
     </Router>
 }
 export default PrivateRoutes;
