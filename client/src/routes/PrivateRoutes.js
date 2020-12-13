@@ -35,7 +35,7 @@ const PrivateRoutes = () => {
             <Route exact path="/movieDetails" >
                 <MovieDetails movieId={movieId} />
             </Route>
-            <Route exact path="/profile" ><Profile /></Route>
+            <Route path="/profile/:id?" ><Profile /></Route>
             <Route exact path="/reviews" ><Reviews /></Route>
             <Route path="/review/:id" ><Review /></Route>
             <Route exact path="/watched" ><Watched /></Route>

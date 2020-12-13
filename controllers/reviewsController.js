@@ -22,7 +22,7 @@ module.exports = {
   },
   findByMovieId: function (req, res) {
     db
-      .find({'movieId': req.params.id})
+      .find({'reviewedMovieId': req.params.id})
       .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
