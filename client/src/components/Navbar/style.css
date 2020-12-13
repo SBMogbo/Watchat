@@ -44,6 +44,7 @@ dfn:hover::after {
 .header-option > .MuiSvgIcon-root {
 
     color: white;
+    
 }
 
 .header-option:hover > .MuiSvgIcon-root {
@@ -75,7 +76,7 @@ dfn:hover::after {
 }
 
 .nav-link {
-    color: white;
+    color: #111;
 }
 
 .nav-link:hover {

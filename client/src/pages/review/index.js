@@ -1,15 +1,34 @@
 import "./style.css";
-import { Row ,Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
-import ReviewedCard from "../../components/ReviewedPostCard/index";
+import ReviewedCard from "../../components/ReviewedCard/index";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import API from "../../utils/API";
+import { useLocation, useParams } from "react-router";
 
 
 
-function Reviewed() {
+function Review(props) {
     const username = useSelector(state => state.user.username)
-        
+    const user = useSelector(state => state.user)
+    const movieId = useSelector(state => state.movieId)
+    const [results, setResults] = useState('')
+    const [review, setReview] = useState({});
+
+    const routerParams = useParams();
+
+    useEffect(() => {
+
+        API.getReview(routerParams.id)
+            .then((res) => {
+                setReview(res.data);
+            })
+            .catch((err) => {
+                console.log('ERROR ' + err);
+            });
+    }, [])
     return (
         <>
             <div className="container">
@@ -32,7 +51,9 @@ function Reviewed() {
                         <Row className="movieCard-row">
                             <Col>
                                 <MovieCard
-                                />
+                                    id={review.reviewedMovieId}
+                                    title={review.reviewedMovieTitle}
+                                    poster={review.reviewedMoviePoster} />
                             </Col>
                         </Row>
                         <Row style={{color:"white", marginTop:"30px"}}>
@@ -40,13 +61,19 @@ function Reviewed() {
                         </Row>
                         <Row className="recommend-row">
                             <Col>
-                                <MovieCard />
+                                <MovieCard
+                                    id={review.recommendedMovieId}
+                                    title={review.recommendedMovieTitle}
+                                    poster={review.recommendedMoviePoster} />
                             </Col>
                         </Row>
 
                     </Col>
                     <Col className="review-area" sm={9}>
-                        <ReviewedCard  />
+                        <ReviewedCard
+                            reviewTitle={review.reviewTitle}
+                            review={review.review}
+                        />
 
                     </Col>
                 </Row>
@@ -55,4 +82,4 @@ function Reviewed() {
     )
 }
 
-export default Reviewed;
+export default Review;

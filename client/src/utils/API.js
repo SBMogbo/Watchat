@@ -54,14 +54,17 @@ const API = {
   getToWatchListByUser: function (id) {
     return axios.get("/api/toWatch/" + id);
   },
-  saveToReviewsList: function (user, movieId, poster, movieTitle, reviewTitle, review, recommendationId) {
-    return axios.post("/api/reviews", { user, movieId, poster, movieTitle, reviewTitle, review, recommendationId })
+  saveToReviewsList: function (user, reviewedMovieId, reviewedMovieTitle, reviewedMoviePoster, reviewTitle, review, recommendedMovieId, recommendedMovieTitle, recommendedMoviePoster) {
+    return axios.post("/api/reviews", { user, reviewedMovieId, reviewedMovieTitle, reviewedMoviePoster, reviewTitle, review, recommendedMovieId, recommendedMovieTitle, recommendedMoviePoster })
   },
-  getRewiewsListByUser: function () {
-    return axios.get("/api/reviews/user/");
+  getReviewsListByUser: function (id) {
+    return axios.get("/api/reviews/user/" + id);
   },
-  getRewiewsListByMovie: function () {
-    return axios.get("/api/reviews/movie/");
+  getReviewsListByMovie: function (id) {
+    return axios.get("/api/reviews/movie/" + id);
+  },
+  getReview: function (id) {
+    return axios.get("/api/reviews/" + id);
   },
 };
 export default API

@@ -2,7 +2,7 @@ import "./style.css"
 import { Card, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { setMovieId } from "../../utils/AppSlice";
+import { setMovieId, setMovieTitle, setPoster } from "../../utils/AppSlice";
 import { setUser } from "../../utils/AppSlice";
 
 function MovieCard(props) {
@@ -13,6 +13,8 @@ function MovieCard(props) {
   function onClick() {
     // props.onMovieClick(props.id)
     dispatch(setMovieId(props.id))
+    dispatch(setMovieTitle(props.title))
+    dispatch(setPoster(props.poster))
     // dispatch(setUser(userId))
     history.push("/movieDetails")
   }

@@ -15,12 +15,12 @@ module.exports = {
       .catch(err => res.status(500).json(err));
   },
   findByUserId: function (req, res) {
-    console.log(req.params)
-    console.log(JSON.stringify({'user.id': req.params.id}));
+    // console.log(req.params)
+    // console.log(JSON.stringify({'user.id': req.params.id}));
     db
       .find({'userId': req.params.id})
       .then(dbWatched => {
-        console.log(dbWatched);
+        // console.log(dbWatched);
         res.json(dbWatched);
       })
       .catch(err => res.status(500).json(err));

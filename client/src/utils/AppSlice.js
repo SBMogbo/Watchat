@@ -12,6 +12,8 @@ export const appSlice = createSlice({
       username:null,
     },
     recommendedId: null,
+    recommendedTitle: null,
+    recommendedPoster: null,
     reviewTitle: null,
     review: null,
   },
@@ -22,6 +24,8 @@ export const appSlice = createSlice({
     setMovieTitle: (state, action) => ({...state, movieTitle: action.payload}),
     setUser: (state, action) => ({...state, user: action.payload}),
     setRecommendedId:(state, action) => ({...state, recommendedId: action.payload}),
+    setRecommendedTitle:(state, action) => ({...state, recommendedTitle: action.payload}),
+    setRecommendedPoster:(state, action) => ({...state, recommendedPoster: action.payload}),
     setReviewTitle: (state, action) => ({...state, reviewTitle: action.payload}),
     setReview: (state, action) => ({...state, review: action.payload})
   }
@@ -36,6 +40,8 @@ export const {
   setMovieTitle,
   setUser,
   setRecommendedId,
+  setRecommendedTitle,
+  setRecommendedPoster,
   setReviewTitle,
   setReview,
 } = actions;

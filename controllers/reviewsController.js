@@ -16,27 +16,29 @@ module.exports = {
   },
   findByUserId: function (req, res) {
     db
-      .find({'userId': req.params.id})
+      .find({'user.id': req.params.id})
       .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
   findByMovieId: function (req, res) {
     db
-      .find({'movieId': req.params.id})
+      .find({'reviewedMovieId': req.params.id})
       .then(dbReviews => res.json(dbReviews))
       .catch(err => res.status(500).json(err));
   },
   create: function (req, res) {
-    console.log(req.body)
+    // console.log(req.body)
     db
       .create({
         user: req.body.user,
-        movieId: req.body.movieId,
-        poster: req.body.poster,
-        movieTitle: req.body.movieTitle,
+        reviewedMovieId: req.body.reviewedMovieId,
+        reviewedMovieTitle: req.body.reviewedMovieTitle,
+        reviewedMoviePoster: req.body.reviewedMoviePoster,
         reviewTitle: req.body.reviewTitle,
         review: req.body.review,
-        recommendationId: req.body.recommendationId,
+        recommendedMovieId: req.body.recommendedMovieId,
+        recommendedMovieTitle: req.body.recommendedMovieTitle,
+        recommendedMoviePoster: req.body.recommendedMoviePoster,
       })
       .then(dbReviews => res.json(dbReviews))
       .catch(err => {

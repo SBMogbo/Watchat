@@ -2,7 +2,7 @@ import { Card, Button, Row } from "react-bootstrap";
 import API from "../../utils/API";
 import MovieCard from "../MovieCard";
 import { useDispatch } from "react-redux";
-import { setRecommendedId, setSearch, setPoster, setMovieTitle } from "../../utils/AppSlice";
+import { setRecommendedId, setRecommendedTitle, setRecommendedPoster, setSearch, setPoster } from "../../utils/AppSlice";
 import { useState } from "react";
 import { IconButton } from "@material-ui/core"
 
@@ -28,7 +28,7 @@ function RecommendedCard(props) {
         // console.log("res", { res })
 
         const response = res.Search;
-        let results = response[1];
+        let results = response[0];
         // map through the array
 
         // store each movie information in a new object
@@ -42,19 +42,19 @@ function RecommendedCard(props) {
         }
 
 
-        console.log(results)
+        // console.log(results)
         // console.log("response", response)
         // console.log("movies", results)
         setResults(result)
         dispatch(setRecommendedId(result.id));
-        console.log(results.Poster)
-        dispatch(setPoster(results.Poster));
-        dispatch(setMovieTitle(results.Title));
+        dispatch(setRecommendedTitle(result.title));
+        dispatch(setRecommendedPoster(result.poster));
+        // console.log(results.Poster)
       })
       .catch((err) => {
         console.log('ERROR ' + err);
       });
-    
+
   };
   // console.log(results)
   return (results.length === 0) ? (
@@ -63,22 +63,22 @@ function RecommendedCard(props) {
       <Card style={{ backgroundColor: "transparent", border: "none" }}>
         <Card.Body>
           <Card.Text style={{ color: "white" }}>
-          <Row style={{marginBottom:"10px"}}>
+            <Row style={{ marginBottom: "10px" }}>
               <h5>Recommended</h5>
-              </Row>
-          
+            </Row>
+
           </Card.Text>
-          <Row style={{justifyContent:"center", marginBottom:"10px"}}>
-          <form onSubmit={movieSearchFunc}>
+          <Row style={{ justifyContent: "center", marginBottom: "10px" }}>
+            <form onSubmit={movieSearchFunc}>
               <input value={query} type="text" onChange={(e) => setQuery(e.target.value)} placeholder="Movie Title"></input>
             </form>
           </Row>
-          <Row style={{marginLeft:"20px",marginBottom:"10px"}}>
-          <IconButton>
-            <Button onClick={movieSearchFunc} variant="outline-light">Search</Button>
+          <Row style={{ marginLeft: "20px", marginBottom: "10px" }}>
+            <IconButton>
+              <Button onClick={movieSearchFunc} variant="outline-light">Search</Button>
             </IconButton>
           </Row>
-           
+
         </Card.Body>
       </Card>
     </>
@@ -87,23 +87,23 @@ function RecommendedCard(props) {
         <Card style={{ backgroundColor: "transparent", border: "none" }}>
           <Card.Body>
             <Card.Text style={{ color: "white" }}>
-              <Row style={{ marginBottom:"10px"}}>
-              <h5>Recommended</h5>
+              <Row style={{ marginBottom: "10px" }}>
+                <h5>Recommended</h5>
               </Row>
-              
-             
+
+
             </Card.Text>
-            <Row style={{justifyContent:"center", marginBottom:"10px"}}>
-            <form onSubmit={movieSearchFunc}>
-                <input style={{justifyContent:"center"}} value={query} type="text" onChange={(e) => setQuery(e.target.value)} placeholder="Movie Title"></input>
+            <Row style={{ justifyContent: "center", marginBottom: "10px" }}>
+              <form onSubmit={movieSearchFunc}>
+                <input style={{ justifyContent: "center" }} value={query} type="text" onChange={(e) => setQuery(e.target.value)} placeholder="Movie Title"></input>
               </form>
             </Row>
-          
-            <Row style={{marginLeft:"20px",marginBottom:"10px"}}>
+
+            <Row style={{ marginLeft: "20px", marginBottom: "10px" }}>
               <IconButton>
-            <Button style={{marginTop:"5px", justifyContent:"left"}}onClick={movieSearchFunc} variant="outline-light">Search</Button>
-            </IconButton>
-              </Row>
+                <Button style={{ marginTop: "5px", justifyContent: "left" }} onClick={movieSearchFunc} variant="outline-light">Search</Button>
+              </IconButton>
+            </Row>
           </Card.Body>
           <MovieCard
             onMovieClick={props.onMovieClick}
