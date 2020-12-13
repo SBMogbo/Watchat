@@ -16,8 +16,8 @@ function ProfileRecommends(props) {
                 <Row>
                     {
                         props.reviews.map(review => (
-                            <Col sm={2}>
-                                <Card.Img key={review._id} style={{ cursor: "pointer" }} variant="bottom" src={review.recommendedMoviePoster} />
+                            <Col key={review._id} sm={2}>
+                                <Card.Img  style={{ cursor: "pointer" }} variant="bottom" src={review.recommendedMoviePoster} />
                             </Col>
                         ))
                     }

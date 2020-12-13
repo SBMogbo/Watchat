@@ -27,7 +27,6 @@ function Profile() {
 
     const [watchedResults, setWatchedResults] = useState([])
     const [toWatchResults, setToWatchResults] = useState([])
-    const [recommendedResults, setRecommendedResults] = useState([])
     const [reviewedResults, setReviewedResults] = useState([])
     const [username, setUsername] = useState([])
     const userId = routerParams.id ?? user.id
@@ -52,16 +51,15 @@ function Profile() {
     async function getProfileWatchedList() {
         return API.getWatchedListByUser(userId)
             .then((res) => {
-                const response = res.data;
-                let reviews = response.data;
-                reviews = reviews.map(x => ({
+                let movies = res.data;
+                movies = movies.map(x => ({
                     ...x,
                     poster: x.poster,
                     movieId: x.movieId,
                     movieTitle: x.movieTitle,
                 }));
-                setReviewedResults(reviews);
-                console.log(reviews)
+                setWatchedResults(movies);
+                console.log(movies)
             }).catch((err) => {
                 console.log('ERROR ' + err);
             });
@@ -70,16 +68,15 @@ function Profile() {
     async function getProfileToWatchList() {
         return API.getToWatchListByUser(userId)
         .then((res) => {
-            const response = res.data;
-            let reviews = response.data;
-            reviews = reviews.map(x => ({
+            let movies = res.data;
+            movies = movies.map(x => ({
                 ...x,
                 poster: x.poster,
                 movieId: x.movieId,
                 movieTitle: x.movieTitle,
             }));
-            setReviewedResults(reviews);
-            console.log(reviews)
+            setToWatchResults(movies);
+            console.log(movies)
         }).catch((err) => {
             console.log('ERROR ' + err);
         });
@@ -123,9 +120,9 @@ function Profile() {
                         </Row>
                         <Row>
                             <Col className="profile-recommend">
-                                {/* <ProfileRecommends
-                                    poster={recommendedResults[0]?.poster}
-                                /> */}
+                                <ProfileRecommends
+                                    reviews={reviewedResults.filter(x => x.recommendedMovieId)}
+                                />
                             </Col>
                         </Row>
                     </Col>
