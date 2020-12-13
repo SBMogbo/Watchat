@@ -2,7 +2,7 @@ import "./style.css";
 import { Card, Row, Col } from "react-bootstrap";
 
 
-function ProfileMovieCard() {
+function ProfileMovieCard(props) {
   
     return(
       <>

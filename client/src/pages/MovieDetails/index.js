@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { IconButton } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import swal from 'sweetalert';
+import MovieRecommend from "../../components/MovieRecommend";
 
 function MovieDetails(props) {
     const [results, setResults] = useState('')
@@ -103,120 +104,69 @@ function MovieDetails(props) {
                     </Row>
                     <Row>
                         <Col>
-<<<<<<< HEAD
-                            <Card className="Info" style={{ color:"white", border: "none", borderRadius: "10px", backgroundColor: "#564d4d", marginTop: "35px"}}>
-                                <Card.Header style={{backgroundColor:"#696969", borderRadius:"10px"}}>
-                                    <h5 style={{paddingTop:"5px"}}>Info:</h5>
-=======
-                            <Card className="Info" style={{ color: "white", border: "none", borderRadius: "10px", backgroundColor: "#564d4d", marginTop: "35px" }}>
-                                <Card.Header>
-                                    <h5>Info:</h5>
->>>>>>> 394ea4a87ed90d4a9bc10bf9fe387935e436d6dc
-                                </Card.Header>
-                                <Card.Body>
-                                    <Row style={{ marginBottom: "10px" }}>
-                                        Name: {results.title}
-                                    </Row>
-                                    <Row style={{ marginBottom: "10px" }}>
-                                        IMDB Rating: {results.imdbRating}
-                                    </Row >
-                                    <Row style={{ marginBottom: "10px" }}>
-                                        Rated: {results.rated}
-                                    </Row>
-                                    <Row style={{ marginBottom: "10px" }}>
-                                        Genre: {results.genre}
-                                    </Row>
-                                </Card.Body>
-                            </Card>
+                        <Card className="Info" style={{ color: "white", border: "none", borderRadius: "10px", backgroundColor: "#564d4d", marginTop: "35px" }}>
+                            <Card.Header style={{ backgroundColor: "#696969", borderRadius: "10px" }}>
+                                <h5 style={{ paddingTop: "5px" }}>Info:</h5>
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <Row style={{ marginBottom: "10px" }}>
+                                            Name: {results.title}
+                                        </Row>
+                                        <Row style={{ marginBottom: "10px" }}>
+                                            IMDB Rating: {results.imdbRating}
+                                        </Row >
+                                        <Row style={{ marginBottom: "10px" }}>
+                                            Rated: {results.rated}
+                                        </Row>
+                                        <Row style={{ marginBottom: "10px" }}>
+                                            Genre: {results.genre}
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
                         </Col>
                     </Row>
                 </Col>
-                <Col className="right-side"
-                    sm={8}>
-                    <Row>
-                        <Col>
+                    <Col className="right-side"
+                        sm={8}>
+                        <Row>
+                            <Col>
 
-                            <Card className="platform-card" style={{ color:"white", backgroundColor: "#696969", border: "none", borderRadius:"10px"}}>
+                                <Card className="platform-card" style={{ color: "white", backgroundColor: "#696969", border: "none", borderRadius: "10px" }}>
 
-                                <Card.Header>
-                                    Availabe on...
+                                    <Card.Header>
+                                        Availabe on...
                                 </Card.Header>
-                                <Card.Body bsStyle="defaault"
-                                    style={
-                                        { paddingBottom: "20px", backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }
-                                    }>
-                                    <Button>
-                                        Youtube
+                                    <Card.Body bsStyle="defaault"
+                                        style={
+                                            { paddingBottom: "20px", backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }
+                                        }>
+                                        <Button>
+                                            Youtube
                                     </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-<<<<<<< HEAD
-                            <Card className="user-card" style={{ backgroundColor: "#696969", border: "none", borderRadius: "10px" }}>
-                                <Card.Header style={{ color:"white"}}>
-                                    See what others have said
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+
+                                <Card className="user-card" style={{ backgroundColor: "#696969", border: "none", borderRadius: "10px" }}>
+                                    <Card.Header style={{ color: "white" }}>
+                                        See what others have said
                                 </Card.Header>
-                                <Card.Body className="scroll-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
-                                    User1234: This movie is great!!
-                                
-=======
-                            <Card className="user-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
-                                <Card.Header style={{ color: "white" }}>
-                                    See what others have said
-                                </Card.Header>
-                                <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
-                                    {/* {recommendedResults[0].username} : {recommendedResults[0].reviewTitle} */}noone has reviewed this movie yet
->>>>>>> 394ea4a87ed90d4a9bc10bf9fe387935e436d6dc
+                                    <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
+                                        {/* {recommendedResults[0].username} : {recommendedResults[0].reviewTitle} */}noone has reviewed this movie yet
+
                                 </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="recommend-card">
-<<<<<<< HEAD
-                        <Card style={{backgroundColor:"transparent", border:"none", borderRadius:"10px", boxShadow:"20px 20px 10px rgba(0,0,0,0.75"}}>
-            <Card.Header  style={{color:"white", backgroundColor:"#696969", borderRadius:"10px"}}>
-            <Card.Title style={{ color: "white", marginTop:"10px" }}>Recommends</Card.Title>
-            </Card.Header>
-            <Card.Text className="scroll-rec" style={{ backgroundColor:"#dbd8e3", paddingBottom:"120px", borderRadius:"10px", border:"none"}}>
-                <Row>
-                    <Col sm={2}>
-                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
-                        </Col>
-                    <Col sm={2}>
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="recommend-card">
 
-                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                            </Col>
+                        </Row>
                     </Col>
-
-                    <Col sm={2}>
-                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
-                    </Col>
-
-                    <Col sm={2}>
-                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" /> 
-                    </Col>
-
-                    <Col sm={2}>
-                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
-                    </Col>
-                   
-                    
-                </Row>
-            </Card.Text>
-        </Card>
-=======
-                            {/* <ProfileRecommends 
-                            recommendationId ={recommendedResults[0].recommendationId}
-                            movieTitle ={recommendedResults[0].movieTitle}
-                            poster ={recommendedResults[0].poster}
-                            /> */}
->>>>>>> 394ea4a87ed90d4a9bc10bf9fe387935e436d6dc
-                        </Col>
-                    </Row>
-                </Col>
             </Row>
         </div>
     ) : (
@@ -304,16 +254,17 @@ function MovieDetails(props) {
                         <Row>
 
                             <Col className="recommend-card">
+                                
                                 {/* {reviews.filter(x => x.recommendedMovieId).map(review => (
                                     <span>
                                         <img src={review.recommendedMoviePoster} width="100px" />
                                     </span>
                                 ))} */}
-                                <ProfileRecommends
+                                <MovieRecommend
                                     reviews={reviews.filter(x => x.recommendedMovieId)}
-                                    // recommendationId={reviews[0].recommendedMovieId}
-                                    // movieTitle={reviews[0].recommendedMovieTitle}
-                                    // poster={reviews[0].recommendedMoviePoster}
+                                // recommendationId={reviews[0].recommendedMovieId}
+                                // movieTitle={reviews[0].recommendedMovieTitle}
+                                // poster={reviews[0].recommendedMoviePoster}
                                 />
                             </Col>
                         </Row>
