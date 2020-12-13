@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Link } from 'react-router-dom';
 import { HashRouter as Router } from "react-router-dom";
 
+
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -47,6 +48,7 @@ function SignUp(props) {
         .then(res => {
           console.log(props.history)
           props.history.push("/login")
+          
         })
         .catch(err => console.log(err));
     } else {
@@ -81,6 +83,7 @@ function SignUp(props) {
     setState({ ...state, formErrors, [name]: value });
 
   }
+  
   const { formErrors } = state;
 
   return (
@@ -121,7 +124,7 @@ function SignUp(props) {
       </div>
     </Router>
   )
-
+              
 }
 
 export default SignUp;

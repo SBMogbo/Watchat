@@ -39,7 +39,7 @@ function Navbar(props) {
           {/*Header Left*/}
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
                <MovieFilterSharpIcon  style={{marginTop:"14px", color:"#f4ca16"}}fontSize="large"/>
-               <h3 style={{marginTop:"15px", marginLeft:"10px", color:"white"}}>WatchAt</h3>
+               <h3 style={{marginTop:"15px", marginLeft:"10px", color:"#111"}}>WatchAt</h3>
           </div>
         {/* Header Center */}
         <div className={'col-12 col-md-6 d-flex p-1 '}>
@@ -61,7 +61,7 @@ function Navbar(props) {
         </div>
           {/* Start of Header Right*/}
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-          <SearchIcon style={{color:"white"}} fontSize="large" />
+          <SearchIcon style={{color:"#111"}} fontSize="large" />
           <form onSubmit={movieSearchFunc}>
             <input className={'header_input'} placeholder="Search Movies" value={query} type="text" onChange={(e) => setQuery(e.target.value)} />
           </form>
