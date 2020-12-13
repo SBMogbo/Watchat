@@ -17,7 +17,7 @@ function Watchlist(props) {
             .then((res) => {
                 const response = res.data;
                 let results = response;
-                console.log(results)
+                // console.log(results)
                 // map through the array
                 results = results.map((result) => {
                     // store each movie information in a new object
@@ -31,8 +31,8 @@ function Watchlist(props) {
                     };
                     return result;
                 });
-                console.log("response", response)
-                console.log("movies", results)
+                // console.log("response", response)
+                // console.log("movies", results)
                 setResults(results)
             })
             .catch((err) => {

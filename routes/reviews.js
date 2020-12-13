@@ -9,7 +9,10 @@ router.route("/")
 router.route("/user/:id")
   .get(reviewsController.findByUserId)
 
-  router.route("/movie/:id")
+router.route("/movie/:id")
   .get(reviewsController.findByMovieId)
-  
+
+router.route("/:id")
+  .get(reviewsController.findById)
+
 module.exports = router;

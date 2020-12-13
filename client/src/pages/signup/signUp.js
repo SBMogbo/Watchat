@@ -46,7 +46,7 @@ function SignUp(props) {
       // `);
       API.saveUser(state.username, state.email, state.password)
         .then(res => {
-          console.log(props.history)
+          // console.log(props.history)
           props.history.push("/login")
           
         })
