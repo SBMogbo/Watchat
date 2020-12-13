@@ -12,9 +12,9 @@ import {IconButton} from "@material-ui/core";
 function MovieDetails(props) {
     const [results, setResults] = useState('')
     const movieId = useSelector(state => state.movieId)
-    const userId = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
     function saveToWatchedList() {
-        API.saveToWatchedList(userId, movieId, results.poster, results.title)
+        API.saveToWatchedList(user.id, movieId, results.poster, results.title)
             .then(res => {
                 console.log('Added to watched list successful')
                 // props.history.push("/login")
@@ -22,7 +22,7 @@ function MovieDetails(props) {
             .catch(err => console.log(err));
     }
     function saveToToWatchList() {
-        API.saveToToWatchList(userId, movieId, results.poster, results.title)
+        API.saveToToWatchList(user.id, movieId, results.poster, results.title)
             .then(res => {
                 console.log('Added to toWatch list successful')
                 // props.history.push("/login")
@@ -83,8 +83,8 @@ function MovieDetails(props) {
                     <Row>
                         <Col>
                             <Card className="Info" style={{ color:"white", border: "none", borderRadius: "10px", backgroundColor: "#564d4d", marginTop: "35px"}}>
-                                <Card.Header>
-                                    <h5>Info:</h5>
+                                <Card.Header style={{backgroundColor:"#696969", borderRadius:"10px"}}>
+                                    <h5 style={{paddingTop:"5px"}}>Info:</h5>
                                 </Card.Header>
                                 <Card.Body>
                                     <Row style={{marginBottom:"10px"}}>
@@ -108,7 +108,7 @@ function MovieDetails(props) {
                     sm={8}>
                     <Row>
                         <Col>
-                            <Card className="platform-card" style={{ color:"white", backgroundColor: "transparent", border: "none"}}>
+                            <Card className="platform-card" style={{ color:"white", backgroundColor: "#696969", border: "none", borderRadius:"10px"}}>
                                 <Card.Header>
                                     Availabe on...
                                 </Card.Header>
@@ -125,20 +125,49 @@ function MovieDetails(props) {
                     </Row>
                     <Row>
                         <Col>
-                            <Card className="user-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
+                            <Card className="user-card" style={{ backgroundColor: "#696969", border: "none", borderRadius: "10px" }}>
                                 <Card.Header style={{ color:"white"}}>
                                     See what others have said
                                 </Card.Header>
-                                <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
+                                <Card.Body className="scroll-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
                                     User1234: This movie is great!!
-
+                                
                                 </Card.Body>
                             </Card>
                         </Col>
                     </Row>
                     <Row>
                         <Col className="recommend-card">
-                            <ProfileRecommend />
+                        <Card style={{backgroundColor:"transparent", border:"none", borderRadius:"10px", boxShadow:"20px 20px 10px rgba(0,0,0,0.75"}}>
+            <Card.Header  style={{color:"white", backgroundColor:"#696969", borderRadius:"10px"}}>
+            <Card.Title style={{ color: "white", marginTop:"10px" }}>Recommends</Card.Title>
+            </Card.Header>
+            <Card.Text className="scroll-rec" style={{ backgroundColor:"#dbd8e3", paddingBottom:"120px", borderRadius:"10px", border:"none"}}>
+                <Row>
+                    <Col sm={2}>
+                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                        </Col>
+                    <Col sm={2}>
+
+                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                    </Col>
+
+                    <Col sm={2}>
+                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                    </Col>
+
+                    <Col sm={2}>
+                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" /> 
+                    </Col>
+
+                    <Col sm={2}>
+                    <Card.Img style={{cursor:"pointer", margin:"15px 15px"}}variant="bottom" src="https://image.shutterstock.com/image-photo/photo-old-movie-projector-260nw-92369284.jpg" />
+                    </Col>
+                   
+                    
+                </Row>
+            </Card.Text>
+        </Card>
                         </Col>
                     </Row>
                 </Col>

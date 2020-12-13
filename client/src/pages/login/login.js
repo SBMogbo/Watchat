@@ -6,6 +6,9 @@ import { HashRouter as Router } from "react-router-dom";
 import API from "../../utils/API"
 import { useStoreContext } from '../../utils/GlobalState';
 import { LOG_IN } from '../../utils/actions';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../utils/AppSlice';
+import swal from 'sweetalert';
 //test
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -26,6 +29,7 @@ const formValid = ({ formErrors, ...rest }) => {
 
 function Login(props) {
   const dispatch = useStoreContext()[1];
+  const reduxDispatch = useDispatch();
   const [state, setState] = useState({
     username: null,
     password: null,
@@ -56,13 +60,18 @@ function Login(props) {
       try {
         const response = await API.logIn(state.username, state.password);
         localStorage.setItem("authorization-token", response.data.token);
+        reduxDispatch(setUser({
+          id: response.data.token,
+          username: response.data.username,
+        }))
         dispatch({
           type: LOG_IN,
           payload: response.data
         })
+       
       } catch (error) {
         console.log(error)
-        alert("Invalid credentials!");
+        swal("Invalid credentials!");
       }
       props.history.push("/home")
 
@@ -78,8 +87,8 @@ function Login(props) {
 
     switch (name) {
       case "username":
-        formErrors.username = value.length < 3
-          ? "username must be 3 characters or more"
+        formErrors.username = value.length < 6
+          ? "username must be 6 characters or more"
           : "";
         break;
       case "password":

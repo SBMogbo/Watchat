@@ -13,9 +13,9 @@ router
             if (err) {
               return next(err);
             }
-
+            // console.log(user)
             return res.json({
-              name: user.name,
+              username: user.username,
               token: user._id
             })
           });
@@ -27,8 +27,9 @@ router
     if (!req.user) {
       return res.sendStatus(401);
     } else {
+      // console.log(req.user)
       return res.json({
-        name: req.user.name,
+        username: req.user.username,
         token: req.user._id
       })
     }

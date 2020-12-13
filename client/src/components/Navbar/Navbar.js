@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
@@ -9,7 +10,6 @@ import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MovieFilterSharpIcon from '@material-ui/icons/MovieFilterSharp';
-import "./style.css";
 import {useDispatch} from "react-redux";
 import {setSearch} from "../../utils/AppSlice";
 function Navbar(props) {
@@ -45,23 +45,23 @@ function Navbar(props) {
         <div className={'col-12 col-md-6 d-flex p-1 '}>
           <div className="col-4 d-flex justify-content-center header-option" title="Home">
             < Link to="/home" className="nav-link">
-              <HomeIcon fontSize="large" />
+             <dfn title="Home"><HomeIcon fontSize="large" /></dfn> 
             </Link>
           </div>
           <div className="col-4 d-flex justify-content-center header-option" title="Watched">
             <Link to="/watched" className="nav-link" >
-              <PlaylistAddCheckIcon fontSize="large" />
+              <dfn title="Watched"> <PlaylistAddCheckIcon fontSize="large" /> </dfn>
             </Link>
           </div>
           <div className="col-4 d-flex justify-content-center header-option" title="Watchlist">
             <Link to="/watchlist" className="nav-link">
-              <SubscriptionsIcon fontSize="large" />
+             <dfn title="Watchlist"> <SubscriptionsIcon fontSize="large" /> </dfn> 
             </Link>
           </div>
         </div>
           {/* Start of Header Right*/}
           <div className="col-12 col-md-3 d-flex justify-content-center p-1">
-          <SearchIcon style={{color:"white"}} fontSize="large" />
+          <SearchIcon style={{color:"white", marginTop:"10px"}} fontSize="large" />
           <form onSubmit={movieSearchFunc}>
             <input className={'header_input'} placeholder="Search Movies" value={query} type="text" onChange={(e) => setQuery(e.target.value)} />
           </form>
@@ -78,7 +78,7 @@ function Navbar(props) {
                 onClose={handleClose}
             >
               <MenuItem onClick={handleClose}><Link to="/profile" className="nav-link">Profile</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to="reviewed" className="nav-link">Reviewed</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to="/reviewed" className="nav-link">Reviewed</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to="/movieDetails" className="nav-link">Details</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to ="/login" className="nav-link">Logout</Link></MenuItem>
             </Menu>

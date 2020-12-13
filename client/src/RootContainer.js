@@ -4,15 +4,22 @@ import PublicRoutes from './routes/PublicRoutes';
 import PrivateRoutes from './routes/PrivateRoutes';
 import API from './utils/API';
 import {LOG_IN} from './utils/actions';
+import { useDispatch } from 'react-redux';
+import { setUser } from './utils/AppSlice';
 
 
 const RootContainer=()=>{
     const [state,dispatch]=useStoreContext();
-
+    const reduxDispatch= useDispatch()
     const [loading,setLoading]=useState(true);
 
     useEffect(()=>{
         API.verifyAuthentication().then(response=>{
+            
+            reduxDispatch(setUser({
+                id: response.data.token,
+                username: response.data.username,
+              }))
             dispatch({
                 type:LOG_IN,
                 payload:response.data
@@ -23,7 +30,7 @@ const RootContainer=()=>{
         }).catch(error=>{
             setLoading(false);
         });
-    }, [dispatch])
+    }, [])
     if(loading) {
         return <div>Loading...</div>
     } else if(state.account) {

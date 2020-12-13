@@ -1,3 +1,7 @@
-.card-body {
-   
+.scroll-movie {
+    height:100px;
+    width:350px;
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+    
+    overflow:scroll;
 }
