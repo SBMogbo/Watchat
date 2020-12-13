@@ -5,7 +5,7 @@ import { Card, Col, Row } from "react-bootstrap"
 
 
 function ProfileRecommends(props) {
-    console.log(props.reviews)
+    // console.log(props.reviews)
     return (
 
         <Card style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px", padding: 10, margin: 10 }}>

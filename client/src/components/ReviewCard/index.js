@@ -41,7 +41,7 @@ function ReviewCard(props) {
         )
             .then(res => {
                 console.log('Added to Reviewed list successful')
-                console.log(res);
+                // console.log(res);
                 history.push("/review/" + res.data._id);
             })
             .catch(err => console.log(err));

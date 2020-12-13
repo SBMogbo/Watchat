@@ -59,7 +59,7 @@ function Profile() {
                     movieTitle: x.movieTitle,
                 }));
                 setWatchedResults(movies);
-                console.log(movies)
+                // console.log(movies)
             }).catch((err) => {
                 console.log('ERROR ' + err);
             });
@@ -76,7 +76,7 @@ function Profile() {
                 movieTitle: x.movieTitle,
             }));
             setToWatchResults(movies);
-            console.log(movies)
+            // console.log(movies)
         }).catch((err) => {
             console.log('ERROR ' + err);
         });
@@ -86,7 +86,7 @@ function Profile() {
         API.getUser(userId)
             .then((res) => {
                 const response = res.data;
-                // console.log(response)
+                console.log(response)
                 setUsername(response.username)
             })
     }
