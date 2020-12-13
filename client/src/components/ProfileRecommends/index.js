@@ -12,7 +12,7 @@ function ProfileRecommends(props) {
             <Card.Header style={{ color: "white" }}>
                 <h5>Recommends</h5>
             </Card.Header>
-            <Card.Text className="scroll-text" style={{ paddingBottom: "170px", backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "20px 20px 10px rgba(0,0,0,0.75)" }}>
+            <Card.Text className="scroll-rev" style={{ paddingBottom: "180px", backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "20px 20px 10px rgba(0,0,0,0.75)" }}>
                 <Row>
                     {
                         props.reviews.map(review => (

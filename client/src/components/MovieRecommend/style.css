@@ -3,5 +3,5 @@
     width: 730px;
     font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
     
-    overflow-x:scroll;
+    overflow:scroll;
 }

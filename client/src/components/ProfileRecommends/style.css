@@ -1,9 +1,8 @@
 
 
-.scroll-text {
+.scroll-rev {
     height:100px;
     width:825px;
     font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
-    overflow-y: hidden;
-    overflow-x:scroll;
+    overflow:scroll;
 }
