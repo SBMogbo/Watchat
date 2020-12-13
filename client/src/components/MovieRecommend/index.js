@@ -11,12 +11,12 @@ function MovieRecommend(props) {
                                     <Card.Header style={{ color: "white", backgroundColor: "#696969", borderRadius: "10px" }}>
                                         <Card.Title style={{ color: "white", marginTop: "10px" }}>Recommends</Card.Title>
                                     </Card.Header>
-                                    <Card.Text className="scroll-rec" style={{ backgroundColor: "#dbd8e3", paddingBottom: "160px", paddingTop:'10px', borderRadius: "10px", border: "none" }}>
+                                    <Card.Text className="scroll-rec" style={{ backgroundColor: "#dbd8e3", paddingBottom: "160px", paddingLeft:"10px", paddingRight:"10px",  borderRadius: "10px", border: "none" }}>
                                     <Row>
                     {
                         props.reviews.map(review => (
                             <Col key={review._id} sm={2}>
-                                <Card.Img  style={{ cursor: "pointer", marginTop:"10px" }} variant="bottom" src={review.recommendedMoviePoster} />
+                                <Card.Img  style={{ cursor: "pointer", marginTop:"15px" }} variant="bottom" src={review.recommendedMoviePoster} />
                             </Col>
                         ))
                     }

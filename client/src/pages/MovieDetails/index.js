@@ -221,7 +221,7 @@ function MovieDetails(props) {
                         sm={8}>
                         <Row>
                             <Col>
-                                <Card className="platform-card" style={{ color: "white", backgroundColor: "transparent", border: "none" }}>
+                                <Card className="platform-card" style={{ color: "white", backgroundColor: "#696969", border: "none" }}>
                                     <Card.Header>
                                         Availabe on...
                                 </Card.Header>
@@ -238,7 +238,7 @@ function MovieDetails(props) {
                         </Row>
                         <Row>
                             <Col>
-                                <Card className="user-card" style={{ backgroundColor: "transparent", border: "none", borderRadius: "10px" }}>
+                                <Card className="user-card" style={{ backgroundColor: "#696969", border: "none", borderRadius: "10px" }}>
                                     <Card.Header style={{ color: "white" }}>
                                         See what others have said
                                 </Card.Header>
