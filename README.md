@@ -16,11 +16,11 @@
 
   ## Installation <a name="installation"></a>
 
-  In the root directory,  Run in terminal: npm install, Then npm Start
+  In the root directory,  Run in terminal: npm install, Then npm Start in watchAt folder
 
   ## Usage <a name="usage"></a>
 
-  Run in terminal:node index.js
+  Used in a browser
 
   See video: https://youtu.be/Nv_OrgfmL10
 
