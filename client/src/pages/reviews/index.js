@@ -1,7 +1,7 @@
 // review page
 import "./style.css";
 import ReviewCard from "../../components/ReviewCard";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import MovieCard from "../../components/MovieCard";
 import RecommendedCard from "../../components/RecommendedCard/index";
 import { useEffect, useState } from "react";
@@ -41,8 +41,8 @@ function Reviews(props) {
                     </Col>
                 </Row>
                 <Row className="username-row">
-                    <Col style={{ color: "white" }}>
-                        <h5>{username}</h5>
+                    <Col style={{ color: "white", marginLeft:"20px" }}>
+                        <h2>{username}</h2>
 
                     </Col>
                 </Row>

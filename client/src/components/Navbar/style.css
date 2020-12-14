@@ -1,18 +1,34 @@
-
 .header {
 
     /* background-color:#564d4d; */
     z-index: 100;
     top: 0;
-    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
-    background-color: #cfcfcf ;
-  
+    box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
+    background-color: #cfcfcf;
+
 }
 
 .header-left {
     display: flex;
     justify-content: space-evenly;
-    
+
+}
+
+dfn {
+    position: relative;
+}
+
+dfn:hover::after {
+    content: attr(title);
+    color: white;
+    background: #564d4d;
+    border-radius: 10px;
+    padding: 7px 15px;
+    border: solid 1px white;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .header_input {
@@ -25,15 +41,14 @@
     outline-width: 0;
 }
 
-.header-option >.MuiSvgIcon-root{
+.header-option > .MuiSvgIcon-root {
 
     color: white;
     
 }
 
 .header-option:hover > .MuiSvgIcon-root {
-    color:#f4ca16;
-    
+    color: #f4ca16;
 }
 
 
@@ -48,7 +63,7 @@
 .header-option {
     display: flex;
     align-items: center;
-    padding: 0px 30px;
+    padding: 0 30px;
     cursor: pointer;
 }
 
@@ -65,14 +80,13 @@
 }
 
 .nav-link:hover {
-color: #f4ca16;
-border-bottom: 4px solid #f4ca16; 
+    color: #f4ca16;
+    border-bottom: 4px solid #f4ca16;
 }
 
 .expand-button {
     color: white;
 }
-
 
 
 /*.header_left > img {*/
@@ -101,4 +115,3 @@ border-bottom: 4px solid #f4ca16;
 /*.expand-button {*/
 /*    border-radius: 33px;*/
 /*}*/
-

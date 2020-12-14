@@ -1,8 +1,7 @@
-
-
-.scroll-rev {
-    height:70px;
-    width:825px;
+.scroll-rec {
+    height:100px;
+    width: 730px;
     font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+    
     overflow:scroll;
 }

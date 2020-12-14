@@ -32,3 +32,12 @@ margin-top: 70px;
     padding-bottom: 10px;
 }
 
+.scroll-reviews {
+    height:100px;
+    width: 730px;
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+    
+    overflow:scroll;
+}
+
+

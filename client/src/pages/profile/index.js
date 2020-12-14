@@ -111,7 +111,7 @@ function Profile() {
                         <Row>
                             <Col className="username"
                                 sm={4}>
-                                <Card style={{ backgroundColor: "transparent", border: "none", marginTop: "20px" }}>
+                                 <Card style={{backgroundColor:"#696969", border:"none", marginTop:"20px"}}>
                                     <Card.Header style={{ color: "white" }}>
                                         <h3>{username}</h3>
                                     </Card.Header>

@@ -32,20 +32,20 @@ function Review(props) {
     return (
         <>
             <div className="container">
-                <Row className="title-row">
+                <Row className="title-row" style={{}}>
                     <Col>
                         <h1>Reviewed</h1>
                     </Col>
                 </Row>
                 <Row className="username-row">
-                    <Col style={{ color: "white" }}>
-                        <h5>{username}</h5>
+                    <Col style={{ color: "white", marginLeft:"20px" }}>
+                        <h2>{username}</h2>
 
                     </Col>
                 </Row>
                 <Row>
                     <Col className="sidebar" sm={3}>
-                        <Row>
+                        <Row style={{color:"white", marginTop:"30px"}}>
                             <h5>Movie Reviewed</h5>
                         </Row>
                         <Row className="movieCard-row">
@@ -56,7 +56,7 @@ function Review(props) {
                                     poster={review.reviewedMoviePoster} />
                             </Col>
                         </Row>
-                        <Row>
+                        <Row style={{color:"white", marginTop:"30px"}}>
                             <h5>Recommended</h5>
                         </Row>
                         <Row className="recommend-row">
