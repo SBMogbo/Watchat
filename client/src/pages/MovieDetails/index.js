@@ -155,7 +155,7 @@ function MovieDetails(props) {
                                         See what others have said
                                 </Card.Header>
                                     <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
-                                        {/* {recommendedResults[0].username} : {recommendedResults[0].reviewTitle} */}noone has reviewed this movie yet
+                                        {/* {recommendedResults[0].username} : {recommendedResults[0].reviewTitle} */}no one has reviewed this movie yet
 
                                 </Card.Body>
                                 </Card>
