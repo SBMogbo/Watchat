@@ -245,7 +245,7 @@ function MovieDetails(props) {
                                     <Card.Body className="user-reviews" style={{ backgroundColor: "#dbd8e3", borderRadius: "10px", boxShadow: "10px 10px 10px rgba(0,0,0,0.75)" }}>
                                         {/* {reviews[0].username} : {reviews[0].reviewTitle} */}
                                         {reviews.map(review => (
-                                            <div key={review._id}><Link to={`/profile/${review.userId}`}>{review.username}</Link> : <Link to={`/review/${review._id}`}>{review.reviewTitle}</Link></div>
+                                            <div key={review._id}><Link to={`/profile/${review.userId}`}>{review.username}</Link> : <Link style={{color:"black"}}to={`/review/${review._id}`}>{review.reviewTitle}</Link></div>
                                         ))}
                                     </Card.Body>
                                 </Card>
