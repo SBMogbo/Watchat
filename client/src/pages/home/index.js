@@ -60,7 +60,7 @@ function Home(props) {
                     <CategoryButtons />
                 </Col>
             </Row>
-            <Row>
+            <Row style={{marginTop:"20px"}}>
                 <Col style={{ marginBottom: "25px" }} md="3">
                     <MovieCard
                         onMovieClick={props.onMovieClick}
